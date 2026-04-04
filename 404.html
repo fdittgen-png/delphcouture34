@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page introuvable — Delph Couture 34</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #FDFAF5;
+      color: #2D2438;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .error-code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 300;
+      line-height: 1;
+      color: #C9A84C;
+      font-style: italic;
+    }
+    .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: #7B6F94;
+      margin: 1rem 0 2rem;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    p { color: #7B6F94; max-width: 32rem; margin: 0 auto 2.5rem; font-size: 0.95rem; line-height: 1.75; }
+    .cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: #C9A84C;
+      color: #1A1525;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .cta:hover { background: #B8963E; }
+    .deco {
+      width: 3rem;
+      height: 1px;
+      background: #C9A84C;
+      margin: 0 auto 2rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="error-code">404</div>
+    <p class="label">Page introuvable</p>
+    <div class="deco"></div>
+    <h1>Cette page n'existe pas</h1>
+    <p>
+      La page que vous cherchez a peut-être été déplacée ou n'existe plus. Retrouvez l'atelier de Delphine Roger sur la page d'accueil.
+    </p>
+    <a href="/" class="cta">Retour à l'accueil</a>
+  </main>
+</body>
+</html>

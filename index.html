@@ -54,6 +54,10 @@
     "priceRange": "€€",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Cash, Bank Transfer",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "description": "Sur rendez-vous"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2, rue Bombe Cul",
@@ -267,9 +271,14 @@
     }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preload" as="image" href="images/hero.avif" type="image/avif" fetchpriority="high">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
   <!-- Lenis Smooth Scroll -->
@@ -277,6 +286,15 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C3J9W6PGW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8C3J9W6PGW', { anonymize_ip: true });
+  </script>
 </head>
 <body class="bg-cream text-charcoal font-body antialiased">
 
@@ -329,7 +347,10 @@
   <!-- HERO                                         -->
   <!-- ============================================ -->
   <section id="accueil" class="relative h-screen flex items-end lg:items-center overflow-hidden" style="background-color: #0C0A10;">
-    <div class="hero-bg absolute inset-0 bg-cover bg-no-repeat bg-right-top lg:bg-right" style="background-image: url('images/hero.jpg');"></div>
+    <picture class="hero-bg absolute inset-0 block w-full h-full">
+      <source srcset="images/hero.avif" type="image/avif">
+      <img src="images/hero.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover object-right-top lg:object-right" fetchpriority="high">
+    </picture>
     <div class="hero-gradient absolute inset-0"></div>
 
     <div class="relative z-10 text-left px-6 lg:px-16 pb-20 lg:pb-0 max-w-[1400px] mx-auto w-full">
@@ -380,7 +401,7 @@
         <div class="lg:col-span-6 lg:order-2 reveal-right">
           <div class="img-frame">
             <div class="aspect-[4/3] overflow-hidden bg-cream-dark">
-              <img src="images/sur-mesure.avif" alt="Couture sur mesure — mètre ruban et tissus" class="w-full h-full object-cover img-luxury parallax-img" loading="lazy" onerror="this.style.display='none'">
+              <img src="images/sur-mesure.avif" alt="Couture sur mesure — mètre ruban et tissus" class="w-full h-full object-cover img-luxury parallax-img" loading="lazy">
             </div>
           </div>
         </div>
@@ -432,7 +453,7 @@
         <div class="lg:col-span-5 reveal-left">
           <div class="img-frame">
             <div class="aspect-[4/3] overflow-hidden bg-cream-dark">
-              <img src="images/confection.avif" alt="Fauteuil habillé sur mesure — confection d'intérieur" class="w-full h-full object-cover img-luxury parallax-img" loading="lazy" onerror="this.style.display='none'">
+              <img src="images/confection.avif" alt="Fauteuil habillé sur mesure — confection d'intérieur" class="w-full h-full object-cover img-luxury parallax-img" loading="lazy">
             </div>
           </div>
         </div>
@@ -534,9 +555,9 @@
 
       <!-- Row 1: large left + small right -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div class="lg:col-span-7 gallery-item group cursor-pointer reveal" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-7 gallery-item group cursor-pointer reveal" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-03.jpg" alt="Costume de scène" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-03.avif" type="image/avif"><img src="images/gallery/costumes/costume-03.jpg" alt="Costume de scène" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Costume de scène</p>
@@ -544,9 +565,9 @@
             </div>
           </div>
         </div>
-        <div class="lg:col-span-5 gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-5 gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-09.jpg" alt="Arlequin tartan" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-09.avif" type="image/avif"><img src="images/gallery/costumes/costume-09.jpg" alt="Arlequin tartan" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Arlequin tartan</p>
@@ -557,9 +578,9 @@
       </div>
 
       <!-- Row 2: full width cinematic -->
-      <div class="mb-4 lg:mb-6 gallery-item group cursor-pointer reveal" data-category="creation" onclick="openLightbox(this)">
+      <div role="button" tabindex="0" aria-label="Agrandir l image" class="mb-4 lg:mb-6 gallery-item group cursor-pointer reveal" data-category="creation">
         <div class="overflow-hidden relative">
-          <img src="images/gallery/costumes/costume-08.jpg" alt="Création artisanale" class="w-full aspect-[16/9] lg:aspect-[21/9] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+          <picture><source srcset="images/gallery/costumes/costume-08.avif" type="image/avif"><img src="images/gallery/costumes/costume-08.jpg" alt="Création artisanale" class="w-full aspect-[16/9] lg:aspect-[21/9] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
           <div class="gallery-overlay"></div>
           <div class="gallery-overlay-text">
             <p class="font-display text-xl text-cream">Création artisanale</p>
@@ -570,9 +591,9 @@
 
       <!-- Row 3: small left + large right -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div class="lg:col-span-5 gallery-item group cursor-pointer reveal" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-5 gallery-item group cursor-pointer reveal" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-13.jpg" alt="Costume futuriste" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-13.avif" type="image/avif"><img src="images/gallery/costumes/costume-13.jpg" alt="Costume futuriste" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Costume futuriste</p>
@@ -580,9 +601,9 @@
             </div>
           </div>
         </div>
-        <div class="lg:col-span-7 gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-7 gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-10.jpg" alt="Détail couture" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-10.avif" type="image/avif"><img src="images/gallery/costumes/costume-10.jpg" alt="Détail couture" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Détail couture</p>
@@ -594,9 +615,9 @@
 
       <!-- Row 4: three equal columns -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div class="gallery-item group cursor-pointer reveal" data-category="creation" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="creation">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-02.jpg" alt="Robe de scène" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-02.avif" type="image/avif"><img src="images/gallery/costumes/costume-02.jpg" alt="Robe de scène" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Robe de scène</p>
@@ -604,9 +625,9 @@
             </div>
           </div>
         </div>
-        <div class="gallery-item group cursor-pointer reveal md:mt-12" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal md:mt-12" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-04.jpg" alt="Tenue originale" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-04.avif" type="image/avif"><img src="images/gallery/costumes/costume-04.jpg" alt="Tenue originale" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Tenue originale</p>
@@ -614,9 +635,9 @@
             </div>
           </div>
         </div>
-        <div class="gallery-item group cursor-pointer reveal" data-category="spectacle" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="spectacle">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-07.jpg" alt="Costume spectacle" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-07.avif" type="image/avif"><img src="images/gallery/costumes/costume-07.jpg" alt="Costume spectacle" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Costume spectacle</p>
@@ -628,9 +649,9 @@
 
       <!-- Row 5: large right + small left -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div class="gallery-item group cursor-pointer reveal" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-11.jpg" alt="Création théâtrale" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-11.avif" type="image/avif"><img src="images/gallery/costumes/costume-11.jpg" alt="Création théâtrale" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Création théâtrale</p>
@@ -638,9 +659,9 @@
             </div>
           </div>
         </div>
-        <div class="gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-12.jpg" alt="Costume unique" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-12.avif" type="image/avif"><img src="images/gallery/costumes/costume-12.jpg" alt="Costume unique" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Costume unique</p>
@@ -651,9 +672,9 @@
       </div>
 
       <!-- Row 6: full width -->
-      <div class="mb-4 lg:mb-6 gallery-item group cursor-pointer reveal" data-category="creation" onclick="openLightbox(this)">
+      <div role="button" tabindex="0" aria-label="Agrandir l image" class="mb-4 lg:mb-6 gallery-item group cursor-pointer reveal" data-category="creation">
         <div class="overflow-hidden relative">
-          <img src="images/gallery/costumes/costume-15.jpg" alt="Création artisanale" class="w-full aspect-[16/9] lg:aspect-[21/9] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+          <picture><source srcset="images/gallery/costumes/costume-15.avif" type="image/avif"><img src="images/gallery/costumes/costume-15.jpg" alt="Création artisanale" class="w-full aspect-[16/9] lg:aspect-[21/9] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
           <div class="gallery-overlay"></div>
           <div class="gallery-overlay-text">
             <p class="font-display text-xl text-cream">Création artisanale</p>
@@ -664,9 +685,9 @@
 
       <!-- Row 7: three remaining -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-        <div class="gallery-item group cursor-pointer reveal" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-14.jpg" alt="Costume de carnaval" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-14.avif" type="image/avif"><img src="images/gallery/costumes/costume-14.jpg" alt="Costume de carnaval" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Costume de carnaval</p>
@@ -674,9 +695,9 @@
             </div>
           </div>
         </div>
-        <div class="gallery-item group cursor-pointer reveal md:mt-12" data-category="costume" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal md:mt-12" data-category="costume">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-16.jpg" alt="Tenue sur mesure" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-16.avif" type="image/avif"><img src="images/gallery/costumes/costume-16.jpg" alt="Tenue sur mesure" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Tenue sur mesure</p>
@@ -684,9 +705,9 @@
             </div>
           </div>
         </div>
-        <div class="gallery-item group cursor-pointer reveal" data-category="spectacle" onclick="openLightbox(this)">
+        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="spectacle">
           <div class="overflow-hidden relative">
-            <img src="images/gallery/costumes/costume-18.jpg" alt="Création originale" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy">
+            <picture><source srcset="images/gallery/costumes/costume-18.avif" type="image/avif"><img src="images/gallery/costumes/costume-18.jpg" alt="Création originale" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
             <div class="gallery-overlay"></div>
             <div class="gallery-overlay-text">
               <p class="font-display text-xl text-cream">Création originale</p>
@@ -835,7 +856,7 @@
 
         <!-- Form + Map -->
         <div class="space-y-10 reveal-right">
-          <form id="contact-form" class="space-y-8" onsubmit="handleSubmit(event)">
+          <form id="contact-form" class="space-y-8">
             <div class="grid sm:grid-cols-2 gap-8">
               <div>
                 <label for="name" class="form-label">Nom</label>
@@ -869,6 +890,7 @@
             <button type="submit" class="btn-primary w-full sm:w-auto">
               Envoyer ma demande
             </button>
+            <p id="form-status" role="status" aria-live="polite" class="mt-4 text-sm"></p>
           </form>
 
           <!-- Map embed -->
@@ -897,9 +919,8 @@
         </a>
 
         <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-[0.65rem] tracking-[0.15em] uppercase">
-          <a href="#" class="hover:text-cream/60 transition-colors duration-300">Mentions légales</a>
-          <a href="#" class="hover:text-cream/60 transition-colors duration-300">Conditions</a>
-          <a href="#" class="hover:text-cream/60 transition-colors duration-300">Confidentialité</a>
+          <a href="mentions-legales.html" class="hover:text-cream/60 transition-colors duration-300">Mentions légales</a>
+          <a href="mentions-legales.html" class="hover:text-cream/60 transition-colors duration-300">Confidentialité (RGPD)</a>
         </div>
 
         <p class="text-[0.75rem]">
@@ -913,16 +934,31 @@
   <!-- ============================================ -->
   <!-- LIGHTBOX                                     -->
   <!-- ============================================ -->
-  <div id="lightbox" class="fixed inset-0 z-[100] bg-[#1A1525]/97 flex items-center justify-center opacity-0 pointer-events-none" onclick="closeLightbox()">
-    <button class="absolute top-8 right-8 text-cream/40 hover:text-cream transition-colors duration-300" aria-label="Fermer">
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-[#1A1525]/97 flex items-center justify-center opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-label="Galerie">
+    <button id="lightbox-close" class="absolute top-8 right-8 text-cream/40 hover:text-cream transition-colors duration-300 z-10" aria-label="Fermer">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
-    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain" onclick="event.stopPropagation()">
-    <p class="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/30 text-[0.65rem] tracking-[0.2em] uppercase">Appuyez sur Échap pour fermer</p>
+    <button id="lightbox-prev" class="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream transition-colors duration-300 z-10 p-2" aria-label="Image précédente">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <button id="lightbox-next" class="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream transition-colors duration-300 z-10 p-2" aria-label="Image suivante">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain">
+    <p class="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/30 text-[0.65rem] tracking-[0.2em] uppercase">Flèches pour naviguer &middot; Échap pour fermer</p>
   </div>
 
+  <noscript>
+    <div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#2D2438;color:#FDFAF5;padding:1rem;text-align:center;font-family:sans-serif;font-size:0.9rem;">
+      Ce site utilise JavaScript pour certaines fonctionnalités (menu mobile, galerie). Contactez Delphine au <a href="tel:+33789575561" style="color:#C9A84C;">07.89.57.55.61</a> ou <a href="mailto:roger.delphe1@orange.fr" style="color:#C9A84C;">roger.delphe1@orange.fr</a>.
+    </div>
+  </noscript>
 
   <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>

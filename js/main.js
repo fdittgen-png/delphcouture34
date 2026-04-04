@@ -45,11 +45,9 @@ let menuOpen = false;
 
 menuToggle.addEventListener('click', () => {
   menuOpen = !menuOpen;
-
   if (menuOpen) {
     mobileMenu.classList.remove('pointer-events-none');
     mobileMenu.classList.add('mobile-menu-open');
-    // Trigger reflow so transitions fire
     void mobileMenu.offsetHeight;
     mobileMenu.style.opacity = '1';
     menuToggle.classList.add('menu-open');
@@ -72,14 +70,13 @@ function closeMenu() {
   }, 500);
 }
 
-// Close on link click
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
 
 /* ============================================ */
-/* SCROLL REVEAL — with stagger support         */
+/* SCROLL REVEAL                                */
 /* ============================================ */
 
 const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger');
@@ -100,33 +97,79 @@ revealElements.forEach(el => revealObserver.observe(el));
 
 
 /* ============================================ */
-/* GALLERY FILTER                               */
+/* GALLERY — Click delegation, keyboard, lightbox */
 /* ============================================ */
 
-const filterButtons = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
 
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+let currentLightboxIndex = -1;
 
-    const filter = btn.dataset.filter;
+function openLightbox(index) {
+  const item = galleryItems[index];
+  if (!item) return;
+  const img = item.querySelector('img');
+  if (!img || !img.src) return;
 
-    galleryItems.forEach(item => {
-      if (filter === 'all' || item.dataset.category === filter) {
-        item.classList.remove('hidden-item');
-        item.style.position = '';
-      } else {
-        item.classList.add('hidden-item');
-        setTimeout(() => {
-          if (item.classList.contains('hidden-item')) {
-            item.style.position = 'absolute';
-          }
-        }, 500);
-      }
-    });
+  currentLightboxIndex = index;
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  lenis.stop();
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  currentLightboxIndex = -1;
+  document.body.style.overflow = '';
+  lenis.start();
+}
+
+function navigateLightbox(direction) {
+  if (currentLightboxIndex === -1) return;
+  const count = galleryItems.length;
+  currentLightboxIndex = (currentLightboxIndex + direction + count) % count;
+  const img = galleryItems[currentLightboxIndex].querySelector('img');
+  if (img) {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  }
+}
+
+// Attach click + keyboard handlers to each gallery item
+galleryItems.forEach((item, index) => {
+  item.addEventListener('click', () => openLightbox(index));
+  item.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox(index);
+    }
   });
+});
+
+// Lightbox controls
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+if (lightboxNext) lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
+const lightboxClose = document.getElementById('lightbox-close');
+if (lightboxClose) lightboxClose.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+
+// Keyboard nav
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeLightbox();
+    if (menuOpen) closeMenu();
+  }
+  if (lightbox.classList.contains('active')) {
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+  }
 });
 
 
@@ -136,16 +179,13 @@ filterButtons.forEach(btn => {
 
 const galleryCursor = document.getElementById('gallery-cursor');
 if (galleryCursor && window.matchMedia('(pointer: fine)').matches) {
-  const gallerySection = document.getElementById('realisations');
   let cursorActive = false;
-
   document.addEventListener('mousemove', (e) => {
     if (cursorActive) {
       galleryCursor.style.left = e.clientX - 36 + 'px';
       galleryCursor.style.top = e.clientY - 36 + 'px';
     }
   });
-
   galleryItems.forEach(item => {
     item.addEventListener('mouseenter', () => {
       cursorActive = true;
@@ -160,57 +200,41 @@ if (galleryCursor && window.matchMedia('(pointer: fine)').matches) {
 
 
 /* ============================================ */
-/* LIGHTBOX                                     */
+/* CONTACT FORM — with feedback                 */
 /* ============================================ */
 
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
 
-function openLightbox(container) {
-  const img = container.querySelector('img');
-  if (!img || !img.src) return;
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  lightboxImg.src = img.src;
-  lightboxImg.alt = img.alt;
-  lightbox.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  lenis.stop();
-}
+    const name = contactForm.querySelector('#name').value.trim();
+    const email = contactForm.querySelector('#email').value.trim();
+    const service = contactForm.querySelector('#service').value;
+    const message = contactForm.querySelector('#message').value.trim();
 
-function closeLightbox() {
-  lightbox.classList.remove('active');
-  document.body.style.overflow = '';
-  lenis.start();
-}
+    if (!name || !email || !message) {
+      if (formStatus) {
+        formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
+        formStatus.className = 'mt-4 text-sm text-gold';
+      }
+      return;
+    }
 
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeLightbox();
-    if (menuOpen) closeMenu();
-  }
-});
+    const subject = encodeURIComponent(`Demande de ${service || 'renseignement'} — ${name}`);
+    const body = encodeURIComponent(
+      `Bonjour Delphine,\n\n${message}\n\n---\nNom : ${name}\nEmail : ${email}\nService : ${service || 'Non précisé'}`
+    );
 
+    if (formStatus) {
+      formStatus.textContent = 'Ouverture de votre messagerie… Si rien ne se passe, écrivez directement à roger.delphe1@orange.fr';
+      formStatus.className = 'mt-4 text-sm text-gold-light';
+    }
 
-/* ============================================ */
-/* CONTACT FORM                                 */
-/* ============================================ */
-
-function handleSubmit(event) {
-  event.preventDefault();
-
-  const form = event.target;
-  const name = form.querySelector('#name').value;
-  const email = form.querySelector('#email').value;
-  const service = form.querySelector('#service').value;
-  const message = form.querySelector('#message').value;
-
-  const subject = encodeURIComponent(`Demande de ${service || 'renseignement'} — ${name}`);
-  const body = encodeURIComponent(
-    `Bonjour Delphine,\n\n${message}\n\n---\nNom : ${name}\nEmail : ${email}\nService : ${service || 'Non précisé'}`
-  );
-
-  window.location.href = `mailto:roger.delphe1@orange.fr?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:roger.delphe1@orange.fr?subject=${subject}&body=${body}`;
+  });
 }
 
 
@@ -220,10 +244,11 @@ function handleSubmit(event) {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '#!') return;
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      // Match nav height: 96px desktop, 80px mobile
       const offset = window.innerWidth >= 1024 ? -96 : -80;
       lenis.scrollTo(target, { offset });
     }
@@ -232,18 +257,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 /* ============================================ */
-/* PARALLAX IMAGES on scroll                    */
+/* PARALLAX IMAGES — throttled via rAF          */
 /* ============================================ */
 
 const parallaxImages = document.querySelectorAll('.parallax-img');
 
 if (parallaxImages.length && window.matchMedia('(pointer: fine)').matches) {
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+
+  function updateParallax() {
+    const vh = window.innerHeight;
     parallaxImages.forEach(img => {
       const rect = img.getBoundingClientRect();
-      const speed = 0.06;
-      const yPos = (rect.top - window.innerHeight / 2) * speed;
+      // Only apply if in viewport (±300px buffer)
+      if (rect.bottom < -300 || rect.top > vh + 300) return;
+      const yPos = (rect.top - vh / 2) * 0.06;
       img.style.transform = `translateY(${yPos}px) scale(1.08)`;
     });
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
   }, { passive: true });
 }

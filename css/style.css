@@ -385,13 +385,6 @@ body::before {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.gallery-item.hidden-item {
-  opacity: 0;
-  transform: scale(0.8);
-  position: absolute;
-  pointer-events: none;
-}
-
 /* Gallery hover overlay */
 .gallery-overlay {
   position: absolute;
@@ -419,34 +412,6 @@ body::before {
 .gallery-item:hover .gallery-overlay-text {
   transform: translateY(0);
   opacity: 1;
-}
-
-
-/* ============================================ */
-/* FILTER BUTTONS                               */
-/* ============================================ */
-
-.filter-btn {
-  padding: 0.5rem 1.5rem;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  border: 1px solid rgba(45, 36, 56, 0.12);
-  color: var(--color-text-muted);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.22, 0.01, 0.13, 0.99);
-}
-
-.filter-btn:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-.filter-btn.active {
-  background: var(--color-text);
-  border-color: var(--color-text);
-  color: var(--color-bg);
 }
 
 
@@ -649,18 +614,12 @@ input:-webkit-autofill:focus {
 
 @media (max-width: 767px) {
   .nav-link,
-  .mobile-nav-link,
-  .filter-btn {
+  .mobile-nav-link {
     min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
-  .filter-btn {
-    padding: 0.625rem 1rem;
-  }
-
   #contact-form button[type="submit"] {
     width: 100%;
   }

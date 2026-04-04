@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+node_modules/
+.claude/
+# Stray root-level image (actual gallery images live in images/gallery/costumes/)
+/costume-09.jpg

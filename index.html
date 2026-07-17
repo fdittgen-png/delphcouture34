@@ -29,7 +29,7 @@
   <meta property="og:site_name" content="Delph Couture 34">
   <meta property="og:url" content="https://www.delphcouture34.com/">
   <meta property="og:image" content="https://www.delphcouture34.com/images/hero.jpg">
-  <meta property="og:image:alt" content="Delphine Roger — Couturière & Costumière à Castelnau-de-Guers">
+  <meta property="og:image:alt" content="Robe de création Delph Couture 34 dans les rues de Castelnau-de-Guers">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -249,22 +249,20 @@
       theme: {
         extend: {
           colors: {
-            cream: '#FDFAF5',
-            'cream-dark': '#F5EFE6',
-            charcoal: '#2D2438',
-            'charcoal-light': '#7B6F94',
-            warm: '#B9A0D8',
-            gold: '#C9A84C',
-            'gold-hover': '#B8963E',
-            'gold-light': '#D4BC6A',
-            muted: '#7B6F94',
-            lavender: '#C2B0DA',
-            'lavender-soft': '#E8DFF2',
+            calicot: '#F6F2EC',
+            ecru: '#EDE7DC',
+            encre: '#191521',
+            'encre-2': '#211B2D',
+            ink: '#26202E',
+            muted: '#6F6779',
+            rose: '#A82B4F',
+            'rose-clair': '#E387A0',
+            fil: '#CFC6B8',
           },
           fontFamily: {
-            display: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
-            body: ['"Inter"', 'system-ui', 'sans-serif'],
-            accent: ['"Playfair Display"', 'Georgia', 'serif'],
+            display: ['"Fraunces"', 'Georgia', 'serif'],
+            body: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
           },
         }
       }
@@ -275,14 +273,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="preload" as="image" href="images/hero.avif" type="image/avif" fetchpriority="high">
+  <link rel="preload" as="image" href="images/village-rouge.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="images/scene-projecteur.webp" type="image/webp" fetchpriority="high">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-
-  <!-- Lenis Smooth Scroll -->
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -296,506 +291,370 @@
     gtag('config', 'G-8C3J9W6PGW', { anonymize_ip: true });
   </script>
 </head>
-<body class="bg-cream text-charcoal font-body antialiased">
-
-  <!-- Gallery custom cursor -->
-  <div id="gallery-cursor">Voir</div>
+<body class="bg-calicot text-ink font-body antialiased">
 
   <!-- ============================================ -->
   <!-- NAVIGATION                                   -->
   <!-- ============================================ -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center justify-between h-20 lg:h-24">
-      <a href="#accueil" class="nav-logo font-display text-2xl lg:text-[1.6rem] tracking-wide">
-        <span class="font-semibold">Delphine</span><span class="nav-logo-accent font-light text-charcoal-light"> Roger</span>
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+      <a href="#accueil" class="nav-logo flex items-baseline gap-2.5">
+        <span class="font-display text-[1.35rem] lg:text-2xl font-medium tracking-tight">Delph Couture</span>
+        <span class="font-mono text-[0.65rem] tracking-[0.2em] text-rose">N°34</span>
       </a>
 
       <!-- Desktop Menu -->
-      <ul class="hidden lg:flex items-center gap-10">
-        <li><a href="#accueil" class="nav-link">Accueil</a></li>
+      <ul class="hidden lg:flex items-center gap-9">
+        <li><a href="#realisations" class="nav-link">La Scène</a></li>
         <li><a href="#couture" class="nav-link">Sur-Mesure</a></li>
-        <li><a href="#confection" class="nav-link">Confection</a></li>
-        <li><a href="#realisations" class="nav-link">Portfolio</a></li>
-        <li><a href="#contact" class="nav-cta nav-link px-6 py-2.5 border text-center transition-all duration-400">Contact</a></li>
+        <li><a href="#confection" class="nav-link">Intérieur</a></li>
+        <li><a href="#methode" class="nav-link">La Méthode</a></li>
+        <li><a href="#contact" class="nav-cta">Me contacter</a></li>
       </ul>
 
       <!-- Mobile Hamburger -->
-      <button id="menu-toggle" class="lg:hidden flex flex-col gap-1.5 z-50" aria-label="Menu">
-        <span class="hamburger-line w-7 h-[1.5px] bg-charcoal transition-all duration-300"></span>
-        <span class="hamburger-line w-7 h-[1.5px] bg-charcoal transition-all duration-300"></span>
-        <span class="hamburger-line w-5 h-[1.5px] bg-charcoal transition-all duration-300"></span>
+      <button id="menu-toggle" class="lg:hidden flex flex-col justify-center gap-1.5 w-10 h-10 -mr-2 items-end z-50" aria-label="Menu" aria-expanded="false">
+        <span class="hamburger-line w-7"></span>
+        <span class="hamburger-line w-7"></span>
+        <span class="hamburger-line w-4"></span>
       </button>
     </div>
 
-    <!-- Mobile Menu — Full-screen dark overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-[#1A1525]/[0.97] flex flex-col items-center justify-center gap-6 opacity-0 pointer-events-none transition-opacity duration-500 lg:hidden" style="z-index: 40;">
-      <a href="#accueil" class="mobile-nav-link font-display text-2xl tracking-wider">Accueil</a>
-      <a href="#couture" class="mobile-nav-link font-display text-2xl tracking-wider">Sur-Mesure</a>
-      <a href="#confection" class="mobile-nav-link font-display text-2xl tracking-wider">Confection</a>
-      <a href="#realisations" class="mobile-nav-link font-display text-2xl tracking-wider">Portfolio</a>
-      <a href="#contact" class="mobile-nav-link font-display text-2xl tracking-wider text-gold">Contact</a>
-      <div class="mt-8 flex items-center gap-6">
-        <a href="tel:+33789575561" class="text-cream/40 hover:text-gold transition-colors text-sm">07.89.57.55.61</a>
-        <span class="text-cream/20">|</span>
-        <a href="mailto:roger.delphe1@orange.fr" class="text-cream/40 hover:text-gold transition-colors text-sm">Email</a>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden" aria-hidden="true">
+      <div class="flex flex-col items-start justify-center h-full px-8 gap-2">
+        <span class="font-mono text-[0.6rem] tracking-[0.3em] uppercase text-rose-clair mb-4">Sommaire</span>
+        <a href="#realisations" class="mobile-nav-link">La Scène</a>
+        <a href="#couture" class="mobile-nav-link">Sur-Mesure</a>
+        <a href="#confection" class="mobile-nav-link">Intérieur</a>
+        <a href="#methode" class="mobile-nav-link">La Méthode</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <div class="stitch-line w-24 my-6"></div>
+        <a href="tel:+33789575561" class="font-mono text-sm text-calicot/60 hover:text-rose-clair transition-colors">07 89 57 55 61</a>
+        <a href="mailto:roger.delphe1@orange.fr" class="font-mono text-sm text-calicot/60 hover:text-rose-clair transition-colors">roger.delphe1@orange.fr</a>
       </div>
     </div>
   </nav>
 
 
   <!-- ============================================ -->
-  <!-- HERO                                         -->
+  <!-- HERO — Diptyque jour / nuit                  -->
   <!-- ============================================ -->
-  <section id="accueil" class="relative h-screen flex items-end lg:items-center overflow-hidden" style="background-color: #0C0A10;">
-    <picture class="hero-bg absolute inset-0 block w-full h-full">
-      <source srcset="images/hero.avif" type="image/avif">
-      <img src="images/hero.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover object-right-top lg:object-right" fetchpriority="high">
-    </picture>
-    <div class="hero-gradient absolute inset-0"></div>
+  <header id="accueil" class="relative min-h-screen flex flex-col lg:block overflow-hidden">
+    <!-- Diptych -->
+    <div class="order-2 lg:absolute lg:inset-y-0 lg:right-0 lg:w-[54%] grid grid-cols-2 gap-0.5 h-[52vh] lg:h-auto">
+      <figure class="hero-panel relative overflow-hidden">
+        <picture>
+          <source srcset="images/village-rouge.webp" type="image/webp">
+          <img src="images/village-rouge.jpg" alt="Robe rouge d'inspiration XVIIIᵉ créée par Delph Couture 34, portée dans une rue de Castelnau-de-Guers" class="w-full h-full object-cover" fetchpriority="high">
+        </picture>
+        <figcaption class="hero-tag left-4">Le village — jour de fête</figcaption>
+      </figure>
+      <figure class="hero-panel hero-panel-2 relative overflow-hidden">
+        <picture>
+          <source srcset="images/scene-projecteur.webp" type="image/webp">
+          <img src="images/scene-projecteur.jpg" alt="Costume de scène sous le projecteur — création Delph Couture 34" class="w-full h-full object-cover" fetchpriority="high">
+        </picture>
+        <figcaption class="hero-tag left-4">La scène — soir de première</figcaption>
+      </figure>
+    </div>
 
-    <div class="relative z-10 text-left px-6 lg:px-16 pb-20 lg:pb-0 max-w-[1400px] mx-auto w-full">
-      <div class="max-w-2xl">
-        <!-- Decorative line -->
-        <div class="deco-line mb-8 animate-fade-up"></div>
-
-        <p class="text-[0.7rem] md:text-xs tracking-[0.35em] uppercase mb-6 text-cream/60 font-body animate-fade-up animation-delay-200">
-          Couturière diplômée &middot; Costumière-créatrice certifiée
+    <!-- Text -->
+    <div class="order-1 relative z-10 flex-1 flex items-center max-w-[1440px] mx-auto w-full px-5 lg:px-12 pt-28 pb-12 lg:py-32 lg:min-h-screen">
+      <div class="w-full min-w-0 lg:max-w-[42%]">
+        <p class="hero-line hero-d1 font-mono text-[0.62rem] md:text-[0.68rem] tracking-[0.28em] uppercase text-muted mb-7">
+          Delphine Roger · Diplômée & certifiée
         </p>
-
-        <h1 class="font-display text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-light leading-[0.95] mb-8 text-cream animate-fade-up animation-delay-400">
-          Delphine<br>
-          <span class="italic font-light text-lavender">Roger</span><span class="text-gold">.</span>
+        <h1 class="font-display font-light leading-[1.05] text-[2.9rem] md:text-[3.9rem] lg:text-[4rem] xl:text-[4.7rem] tracking-[-0.015em] mb-8">
+          <span class="hero-line hero-d2 block">Couturière</span>
+          <span class="hero-line hero-d3 block"><em class="text-rose font-normal">et</em> Costumière</span>
         </h1>
-
-        <p class="text-base md:text-lg font-light leading-relaxed mb-12 text-cream/65 max-w-lg animate-fade-up animation-delay-600">
-          30 ans d'expertise alliant savoir-faire artisanal et créativité de costumière. De l'idée à la réalisation, avec passion et rigueur.
+        <p class="hero-line hero-d4 text-base md:text-[1.05rem] leading-[1.75] text-muted max-w-md mb-10">
+          Costumes de scène, sur-mesure, retouches, tissus d'intérieur.
+          Trente ans de métier, tout est cousu à l'atelier.
         </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-800">
-          <a href="#realisations" class="btn-primary">
-            Découvrir mes créations
-          </a>
-          <a href="#contact" class="btn-secondary text-cream/70">
-            Me contacter
-          </a>
+        <div class="hero-line hero-d5 flex flex-wrap items-center gap-4">
+          <a href="#realisations" class="btn-primary">Voir les costumes</a>
+          <a href="#contact" class="btn-ghost">Demander un devis</a>
         </div>
+        <p class="hero-line hero-d5 font-mono text-[0.62rem] tracking-[0.22em] uppercase text-muted/70 mt-12">
+          Castelnau-de-Guers · Hérault · Atelier fondé en 2013
+        </p>
       </div>
     </div>
+  </header>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
-      <div class="flex flex-col items-center gap-3 animate-fade-up animation-delay-800">
-        <span class="text-cream/30 text-[0.6rem] tracking-[0.25em] uppercase font-body">Défiler</span>
-        <div class="w-[1px] h-8 bg-gradient-to-b from-cream/30 to-transparent animate-pulse"></div>
-      </div>
+
+  <!-- ============================================ -->
+  <!-- BANDE FAITS                                  -->
+  <!-- ============================================ -->
+  <section class="stitch-top stitch-bottom bg-calicot" aria-label="En bref">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 py-5 flex flex-wrap justify-center lg:justify-between gap-x-10 gap-y-2 font-mono text-[0.62rem] tracking-[0.22em] uppercase text-muted">
+      <span>30 ans de métier</span>
+      <span class="hidden md:inline">Diplômée & certifiée ATEC Sud</span>
+      <span>Créations · Retouches · Upcycling</span>
+      <span class="hidden sm:inline">Pézenas — Agde — Sète — Béziers</span>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- COUTURIÈRE SUR-MESURE                        -->
-  <!-- ============================================ -->
-  <section id="couture" class="pt-10 pb-20 lg:pt-12 lg:pb-28">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
-      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-        <!-- Image -->
-        <div class="lg:col-span-6 lg:order-2 reveal-right">
-          <div class="img-frame">
-            <div class="aspect-[4/3] overflow-hidden bg-cream-dark">
-              <img src="images/sur-mesure.avif" alt="Couture sur mesure — mètre ruban et tissus" class="w-full h-full object-cover img-luxury parallax-img" loading="lazy">
-            </div>
-          </div>
-        </div>
 
-        <!-- Text -->
-        <div class="lg:col-span-6 lg:order-1 reveal-left">
-          <div class="deco-line mb-6"></div>
-          <p class="text-[0.7rem] tracking-[0.3em] uppercase text-gold mb-5 font-body font-medium">Sur-Mesure</p>
-          <h2 class="font-display text-4xl md:text-[3.5rem] lg:text-[4rem] font-light leading-[1.05] mb-10">
-            Couturière<br>
-            <span class="italic text-warm">sur-mesure</span>
+  <!-- ============================================ -->
+  <!-- PIÈCE N°1 — LA SCÈNE                         -->
+  <!-- ============================================ -->
+  <section id="realisations" class="bg-encre text-calicot section-dark">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 pt-20 lg:pt-28 pb-16 lg:pb-24">
+
+      <div class="grid lg:grid-cols-12 gap-8 items-end mb-14 lg:mb-20 reveal">
+        <div class="lg:col-span-7">
+          <p class="piece-label piece-label-dark">Pièce N°1 — Portfolio</p>
+          <h2 class="font-display font-light text-[2.6rem] md:text-[3.6rem] lg:text-[4.2rem] leading-[1.03] tracking-[-0.01em]">
+            Costumes <em class="text-rose-clair font-normal">de scène</em>
           </h2>
-          <div class="space-y-5 text-muted leading-[1.85] text-[0.95rem]">
-            <p>
-              Une couturière sur-mesure est une styliste qui crée des pièces uniques, adaptées à votre morphologie, votre style et votre budget. Elle choisit avec soin matières, coupes, couleurs et détails pour concevoir des vêtements durables et parfaitement ajustés.
-            </p>
-            <p>
-              Finis les compromis en cabine d'essayage&nbsp;: chaque création est pensée pour vous, alliant <strong class="text-charcoal font-medium">élégance, personnalisation et accessibilité</strong>. Une mode sur mesure, sans sacrifier le confort ou le prix.
-            </p>
-          </div>
-
-          <!-- Upcycling -->
-          <div class="mt-12 p-8 bg-cream-dark border-l-2 border-gold/30">
-            <p class="font-display text-2xl italic text-charcoal mb-3">Upcycling</p>
-            <p class="text-muted text-[0.9rem] leading-[1.85]">
-              L'art de transformer des vêtements ou des tissus existants en pièces uniques et modernes, tout en leur offrant une seconde vie. Plutôt que de jeter, on réinvente&nbsp;!
-            </p>
-            <p class="text-muted text-[0.9rem] leading-[1.85] mt-4">
-              Que ce soit pour moderniser une pièce démodée, réparer un vêtement abîmé ou créer quelque chose de totalement nouveau — l'upcycling allie <strong class="text-charcoal font-medium">écologie et créativité</strong>.
-            </p>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Divider -->
-  <hr class="section-divider">
-
-
-  <!-- ============================================ -->
-  <!-- CONFECTION D'INTÉRIEUR                       -->
-  <!-- ============================================ -->
-  <section id="confection" class="pt-10 pb-20 lg:pt-12 lg:pb-28">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
-      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-        <!-- Image -->
-        <div class="lg:col-span-5 reveal-left">
-          <div class="img-frame">
-            <div class="aspect-[4/3] overflow-hidden bg-cream-dark">
-              <img src="images/confection.avif" alt="Fauteuil habillé sur mesure — confection d'intérieur" class="w-full h-full object-cover img-luxury parallax-img" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <!-- Text -->
-        <div class="lg:col-span-7 reveal-right">
-          <div class="deco-line mb-6"></div>
-          <p class="text-[0.7rem] tracking-[0.3em] uppercase text-gold mb-5 font-body font-medium">Confection</p>
-          <h2 class="font-display text-4xl md:text-[3.5rem] lg:text-[4rem] font-light leading-[1.05] mb-10">
-            La Confection<br>
-            <span class="italic text-warm">d'Intérieur</span>
-          </h2>
-          <div class="space-y-5 text-muted leading-[1.85] text-[0.95rem]">
-            <p>
-              La confection sur-mesure vous offre la possibilité de créer un intérieur unique et entièrement personnalisé. Que ce soit pour des <strong class="text-charcoal font-medium">rideaux élégants, des fauteuils habillés avec soin, un lit sublimé par des détails cousus main, des coussins originaux, ou des abat-jour raffinés</strong>, tout est possible dans mon atelier.
-            </p>
-            <p>
-              Je mets mon savoir-faire et ma créativité à votre service pour concevoir des pièces qui s'harmonisent parfaitement avec votre décor et reflètent votre style. Ensemble, transformons votre espace en un lieu unique, où chaque détail raconte une histoire.
-            </p>
-          </div>
-          <a href="#contact" class="btn-primary mt-10">
-            Demander un devis
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================ -->
-  <!-- SERVICES OVERVIEW (Cards)                    -->
-  <!-- ============================================ -->
-  <section class="pt-10 pb-20 lg:pt-12 lg:pb-28 bg-charcoal text-cream">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
-      <div class="text-center mb-10 reveal">
-        <div class="deco-line-center mb-6"></div>
-        <p class="text-[0.7rem] tracking-[0.3em] uppercase text-gold mb-5 font-body font-medium">Savoir-faire</p>
-        <h2 class="font-display text-4xl md:text-[3.5rem] font-light">Mes services</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-cream/5 reveal-stagger">
-        <a href="#realisations" class="reveal-child group p-10 bg-charcoal hover:bg-[#352D45] transition-all duration-500 relative">
-          <span class="text-gold/40 font-display text-5xl block mb-6 group-hover:text-gold transition-colors duration-500">01</span>
-          <h3 class="font-display text-xl mb-4 group-hover:text-gold-light transition-colors">Costumes de scène</h3>
-          <p class="text-cream/45 text-[0.85rem] leading-relaxed">Théâtre, spectacle, carnaval — des créations qui captent tous les regards.</p>
-          <span class="absolute bottom-8 right-8 text-gold/0 group-hover:text-gold/60 transition-all duration-500 text-lg">&rarr;</span>
-        </a>
-
-        <a href="#couture" class="reveal-child group p-10 bg-charcoal hover:bg-[#352D45] transition-all duration-500 relative">
-          <span class="text-gold/40 font-display text-5xl block mb-6 group-hover:text-gold transition-colors duration-500">02</span>
-          <h3 class="font-display text-xl mb-4 group-hover:text-gold-light transition-colors">Couture sur mesure</h3>
-          <p class="text-cream/45 text-[0.85rem] leading-relaxed">Des pièces uniques, adaptées à votre morphologie, style et budget.</p>
-          <span class="absolute bottom-8 right-8 text-gold/0 group-hover:text-gold/60 transition-all duration-500 text-lg">&rarr;</span>
-        </a>
-
-        <a href="#couture" class="reveal-child group p-10 bg-charcoal hover:bg-[#352D45] transition-all duration-500 relative">
-          <span class="text-gold/40 font-display text-5xl block mb-6 group-hover:text-gold transition-colors duration-500">03</span>
-          <h3 class="font-display text-xl mb-4 group-hover:text-gold-light transition-colors">Retouches & upcycling</h3>
-          <p class="text-cream/45 text-[0.85rem] leading-relaxed">Retouches précises et transformations créatives pour une seconde vie.</p>
-          <span class="absolute bottom-8 right-8 text-gold/0 group-hover:text-gold/60 transition-all duration-500 text-lg">&rarr;</span>
-        </a>
-
-        <a href="#confection" class="reveal-child group p-10 bg-charcoal hover:bg-[#352D45] transition-all duration-500 relative">
-          <span class="text-gold/40 font-display text-5xl block mb-6 group-hover:text-gold transition-colors duration-500">04</span>
-          <h3 class="font-display text-xl mb-4 group-hover:text-gold-light transition-colors">Confection d'intérieur</h3>
-          <p class="text-cream/45 text-[0.85rem] leading-relaxed">Rideaux, coussins, fauteuils, abat-jour — votre intérieur sur mesure.</p>
-          <span class="absolute bottom-8 right-8 text-gold/0 group-hover:text-gold/60 transition-all duration-500 text-lg">&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================ -->
-  <!-- MARQUEE                                      -->
-  <!-- ============================================ -->
-  <section class="py-10 lg:py-14 bg-cream overflow-hidden">
-    <div class="marquee">
-      <div class="marquee-inner">
-        <span class="font-display text-5xl md:text-7xl lg:text-8xl text-charcoal/[0.04] whitespace-nowrap italic font-light">
-          Costumes &nbsp;&middot;&nbsp; Sur-Mesure &nbsp;&middot;&nbsp; Retouches &nbsp;&middot;&nbsp; Upcycling &nbsp;&middot;&nbsp; Confection &nbsp;&middot;&nbsp; Créations &nbsp;&middot;&nbsp;
-          Costumes &nbsp;&middot;&nbsp; Sur-Mesure &nbsp;&middot;&nbsp; Retouches &nbsp;&middot;&nbsp; Upcycling &nbsp;&middot;&nbsp; Confection &nbsp;&middot;&nbsp; Créations &nbsp;&middot;&nbsp;
-        </span>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================ -->
-  <!-- RÉALISATIONS / PORTFOLIO                     -->
-  <!-- ============================================ -->
-  <section id="realisations" class="pt-10 pb-20 lg:pt-12 lg:pb-28">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
-      <div class="mb-10 reveal">
-        <div class="deco-line mb-6"></div>
-        <p class="text-[0.7rem] tracking-[0.3em] uppercase text-gold mb-5 font-body font-medium">Portfolio</p>
-        <h2 class="font-display text-4xl md:text-[3.5rem] font-light">Mes réalisations</h2>
-      </div>
-
-      <!-- Row 1: large left + small right -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-7 gallery-item group cursor-pointer reveal" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-03.avif" type="image/avif"><img src="images/gallery/costumes/costume-03.jpg" alt="Costume de scène" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Costume de scène</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Spectacle</p>
-            </div>
-          </div>
-        </div>
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-5 gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-09.avif" type="image/avif"><img src="images/gallery/costumes/costume-09.jpg" alt="Arlequin tartan" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Arlequin tartan</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Costume</p>
-            </div>
-          </div>
+        <div class="lg:col-span-5">
+          <p class="text-calicot/55 leading-[1.8] text-[0.95rem] max-w-md">
+            Théâtre, cabaret, carnaval — chaque costume est dessiné,
+            coupé et cousu à la mesure de l'artiste qui le porte.
+          </p>
         </div>
       </div>
 
-      <!-- Row 2: full width cinematic -->
-      <div role="button" tabindex="0" aria-label="Agrandir l image" class="mb-4 lg:mb-6 gallery-item group cursor-pointer reveal" data-category="creation">
-        <div class="overflow-hidden relative">
-          <picture><source srcset="images/gallery/costumes/costume-08.avif" type="image/avif"><img src="images/gallery/costumes/costume-08.jpg" alt="Création artisanale" class="w-full aspect-[16/9] lg:aspect-[21/9] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-          <div class="gallery-overlay"></div>
-          <div class="gallery-overlay-text">
-            <p class="font-display text-xl text-cream">Création artisanale</p>
-            <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Sur mesure</p>
+      <!-- Rangée 1 -->
+      <div class="grid grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-5 mb-3 lg:mb-5">
+        <figure class="gallery-item col-span-2 lg:col-span-5 reveal" role="button" tabindex="0" aria-label="Agrandir : costume pied-de-poule">
+          <div class="gallery-frame aspect-[4/5]">
+            <picture><source srcset="images/scene-pied-de-poule.webp" type="image/webp"><img src="images/scene-pied-de-poule.jpg" alt="Ensemble pied-de-poule et capeline — costume de cabaret" loading="lazy"></picture>
           </div>
+          <figcaption class="gallery-caption">Pied-de-poule & capeline <span>Cabaret</span></figcaption>
+        </figure>
+        <div class="lg:col-span-4 lg:mt-16 reveal">
+          <div id="qc-card" class="qc-card aspect-[2/3]" role="button" tabindex="0" aria-label="Même artiste, deux costumes — activer pour changer de tenue">
+            <picture class="qc-layer qc-active"><source srcset="images/scene-rose.webp" type="image/webp"><img src="images/scene-rose.jpg" alt="Robe fluide rose poudré à traîne — création de scène"></picture>
+            <picture class="qc-layer"><source srcset="images/scene-argent.webp" type="image/webp"><img src="images/scene-argent.jpg" alt="Justaucorps argent brodé de sequins — costume de scène" loading="lazy"></picture>
+            <span class="qc-badge">Changement de costume</span>
+          </div>
+          <div class="qc-controls" role="group" aria-label="Choisir la tenue">
+            <button type="button" class="qc-btn active" data-qc="0" aria-pressed="true">I · Mousseline</button>
+            <button type="button" class="qc-btn" data-qc="1" aria-pressed="false">II · Sequins</button>
+          </div>
+          <p class="gallery-caption qc-caption">Même artiste, deux tenues <span>Cliquer</span></p>
         </div>
+        <figure class="gallery-item lg:col-span-3 lg:mt-32 reveal" role="button" tabindex="0" aria-label="Agrandir : costume armure perlée">
+          <div class="gallery-frame aspect-[3/4] lg:aspect-[2/3]">
+            <picture><source srcset="images/scene-armure.webp" type="image/webp"><img src="images/scene-armure.jpg" alt="Costume avant-garde perlé, casque et croix brodées, lumière bleue de scène" loading="lazy"></picture>
+          </div>
+          <figcaption class="gallery-caption">Armure perlée, croix brodées <span>Avant-garde</span></figcaption>
+        </figure>
       </div>
 
-      <!-- Row 3: small left + large right -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-5 gallery-item group cursor-pointer reveal" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-13.avif" type="image/avif"><img src="images/gallery/costumes/costume-13.jpg" alt="Costume futuriste" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Costume futuriste</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Spectacle</p>
-            </div>
-          </div>
+      <!-- Rangée 2 : bandeau revue -->
+      <figure class="gallery-item block mb-3 lg:mb-5 reveal" role="button" tabindex="0" aria-label="Agrandir : revue sur scène">
+        <div class="gallery-frame aspect-[16/9] lg:aspect-[21/8]">
+          <picture><source srcset="images/scene-revue.webp" type="image/webp"><img src="images/scene-revue.jpg" alt="Troupe de revue en costumes Delph Couture 34 sur scène" style="object-position: 50% 30%;" loading="lazy"></picture>
         </div>
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="lg:col-span-7 gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-10.avif" type="image/avif"><img src="images/gallery/costumes/costume-10.jpg" alt="Détail couture" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Détail couture</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Costume</p>
-            </div>
+        <figcaption class="gallery-caption">La revue au complet <span>Spectacle vivant</span></figcaption>
+      </figure>
+
+      <!-- Rangée 3 -->
+      <div class="grid grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-5 mb-3 lg:mb-5">
+        <figure class="gallery-item lg:col-span-4 reveal" role="button" tabindex="0" aria-label="Agrandir : costume arlequin">
+          <div class="gallery-frame aspect-[3/4]">
+            <picture><source srcset="images/scene-arlequin.webp" type="image/webp"><img src="images/scene-arlequin.jpg" alt="Costume d'arlequin à damier avec collerette" loading="lazy"></picture>
           </div>
-        </div>
+          <figcaption class="gallery-caption">Arlequin, collerette plissée <span>Cirque</span></figcaption>
+        </figure>
+        <figure class="gallery-item lg:col-span-4 lg:mt-16 reveal" role="button" tabindex="0" aria-label="Agrandir : combinaison à pois">
+          <div class="gallery-frame aspect-[3/4]">
+            <picture><source srcset="images/scene-pois.webp" type="image/webp"><img src="images/scene-pois.jpg" alt="Combinaison drapée à pois avec coiffe — costume de scène" loading="lazy"></picture>
+          </div>
+          <figcaption class="gallery-caption">Drapé à pois, manches ailées <span>Cabaret</span></figcaption>
+        </figure>
+        <figure class="gallery-item col-span-2 lg:col-span-4 reveal" role="button" tabindex="0" aria-label="Agrandir : costume rouge de scène">
+          <div class="gallery-frame aspect-[4/5] lg:aspect-[3/4]">
+            <picture><source srcset="images/scene-diable.webp" type="image/webp"><img src="images/scene-diable.jpg" alt="Costume rouge cornu sous les lumières du spectacle" loading="lazy"></picture>
+          </div>
+          <figcaption class="gallery-caption">Le diable en velours <span>Spectacle</span></figcaption>
+        </figure>
       </div>
 
-      <!-- Row 4: three equal columns -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="creation">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-02.avif" type="image/avif"><img src="images/gallery/costumes/costume-02.jpg" alt="Robe de scène" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Robe de scène</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Création</p>
-            </div>
+      <!-- Rangée 4 -->
+      <div class="grid grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-5">
+        <figure class="gallery-item lg:col-span-5 reveal" role="button" tabindex="0" aria-label="Agrandir : costumes d'époque">
+          <div class="gallery-frame aspect-[3/4] lg:aspect-[4/5]">
+            <picture><source srcset="images/theatre-couple.webp" type="image/webp"><img src="images/theatre-couple.jpg" alt="Couple en costumes d'époque XVIIIᵉ dans les rues du village" loading="lazy"></picture>
           </div>
-        </div>
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal md:mt-12" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-04.avif" type="image/avif"><img src="images/gallery/costumes/costume-04.jpg" alt="Tenue originale" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Tenue originale</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Costume</p>
-            </div>
+          <figcaption class="gallery-caption">Habits d'époque, fête du village <span>Théâtre de rue</span></figcaption>
+        </figure>
+        <figure class="gallery-item lg:col-span-4 lg:mt-20 reveal" role="button" tabindex="0" aria-label="Agrandir : plumes de carnaval">
+          <div class="gallery-frame aspect-square">
+            <picture><source srcset="images/scene-plumes.webp" type="image/webp"><img src="images/scene-plumes.jpg" alt="Troupe en costumes à plumes multicolores — carnaval" loading="lazy"></picture>
           </div>
-        </div>
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="spectacle">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-07.avif" type="image/avif"><img src="images/gallery/costumes/costume-07.jpg" alt="Costume spectacle" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Costume spectacle</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Spectacle</p>
-            </div>
+          <figcaption class="gallery-caption">Plumes & paillettes <span>Carnaval</span></figcaption>
+        </figure>
+        <figure class="gallery-item col-span-2 lg:col-span-3 lg:mt-8 reveal" role="button" tabindex="0" aria-label="Agrandir : corset sur mannequin">
+          <div class="gallery-frame aspect-[4/5] lg:aspect-[2/3]">
+            <picture><source srcset="images/scene-corset.webp" type="image/webp"><img src="images/scene-corset.jpg" alt="Robe corsetée orange sur mannequin, lumière de scène" loading="lazy"></picture>
           </div>
-        </div>
+          <figcaption class="gallery-caption">Corset lacé, organza flammé <span>Création</span></figcaption>
+        </figure>
       </div>
 
-      <!-- Row 5: large right + small left -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-4 lg:mb-6">
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-11.avif" type="image/avif"><img src="images/gallery/costumes/costume-11.jpg" alt="Création théâtrale" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Création théâtrale</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Théâtre</p>
-            </div>
-          </div>
-        </div>
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal lg:mt-24" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-12.avif" type="image/avif"><img src="images/gallery/costumes/costume-12.jpg" alt="Costume unique" class="w-full aspect-[4/5] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Costume unique</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Création</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 6: full width -->
-      <div role="button" tabindex="0" aria-label="Agrandir l image" class="mb-4 lg:mb-6 gallery-item group cursor-pointer reveal" data-category="creation">
-        <div class="overflow-hidden relative">
-          <picture><source srcset="images/gallery/costumes/costume-15.avif" type="image/avif"><img src="images/gallery/costumes/costume-15.jpg" alt="Création artisanale" class="w-full aspect-[16/9] lg:aspect-[21/9] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-          <div class="gallery-overlay"></div>
-          <div class="gallery-overlay-text">
-            <p class="font-display text-xl text-cream">Création artisanale</p>
-            <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Sur mesure</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 7: three remaining -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-14.avif" type="image/avif"><img src="images/gallery/costumes/costume-14.jpg" alt="Costume de carnaval" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Costume de carnaval</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Carnaval</p>
-            </div>
-          </div>
-        </div>
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal md:mt-12" data-category="costume">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-16.avif" type="image/avif"><img src="images/gallery/costumes/costume-16.jpg" alt="Tenue sur mesure" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Tenue sur mesure</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Costume</p>
-            </div>
-          </div>
-        </div>
-        <div role="button" tabindex="0" aria-label="Agrandir l image" class="gallery-item group cursor-pointer reveal" data-category="spectacle">
-          <div class="overflow-hidden relative">
-            <picture><source srcset="images/gallery/costumes/costume-18.avif" type="image/avif"><img src="images/gallery/costumes/costume-18.jpg" alt="Création originale" class="w-full aspect-[3/4] object-cover group-hover:scale-[1.04] transition-transform duration-700 img-luxury" loading="lazy"></picture>
-            <div class="gallery-overlay"></div>
-            <div class="gallery-overlay-text">
-              <p class="font-display text-xl text-cream">Création originale</p>
-              <p class="text-cream/50 text-[0.7rem] tracking-[0.15em] uppercase mt-1">Spectacle</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================ -->
-  <!-- CITATION                                     -->
-  <!-- ============================================ -->
-  <section class="pt-10 pb-20 lg:pt-12 lg:pb-28 bg-cream-dark relative overflow-hidden">
-    <!-- Background decorative text -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-      <span class="font-display text-[12rem] md:text-[20rem] text-charcoal/[0.02] italic font-light leading-none">Couture</span>
-    </div>
-
-    <div class="max-w-4xl mx-auto px-6 lg:px-16 text-center reveal relative z-10">
-      <div class="deco-line-center mb-10"></div>
-      <blockquote class="font-display text-2xl md:text-3xl lg:text-[2.75rem] italic font-light leading-[1.35] text-charcoal mb-10">
-        L'art de la couture au service<br class="hidden md:block"> de votre imagination.
-      </blockquote>
-      <p class="text-muted text-[0.9rem] leading-[1.85] max-w-2xl mx-auto">
-        Que vous rêviez d'un costume de scène époustouflant, d'une robe de mariée à votre image ou d'un déguisement de carnaval qui fera sensation, contactez-moi pour créer ensemble une pièce qui vous ressemble.
+      <p class="font-mono text-[0.6rem] tracking-[0.2em] uppercase text-calicot/30 mt-10 reveal">
+        Photographies de scène — Nils Jöhnk · F. Beddok · Hand Photography
       </p>
-      <div class="mt-8">
-        <span class="font-display text-lg text-gold italic">— Delphine Roger</span>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- PIÈCE N°2 — SUR-MESURE & UPCYCLING           -->
+  <!-- ============================================ -->
+  <section id="couture" class="bg-calicot">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 pt-20 lg:pt-28 pb-16 lg:pb-24">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+
+        <div class="lg:col-span-5 lg:pt-6 reveal">
+          <p class="piece-label">Pièce N°2 — L'atelier</p>
+          <h2 class="font-display font-light text-[2.6rem] md:text-[3.4rem] leading-[1.05] tracking-[-0.01em] mb-8">
+            Couture <em class="text-rose font-normal">sur-mesure</em>
+          </h2>
+          <div class="space-y-5 text-muted leading-[1.8] text-[0.95rem]">
+            <p>
+              Robes de mariée, tenues de cérémonie, pièces du quotidien :
+              <strong class="text-ink font-medium">des vêtements construits sur vos mesures</strong>,
+              pas sur une taille standard.
+            </p>
+          </div>
+
+          <div class="upcycling-box mt-10 reveal">
+            <p class="font-mono text-[0.62rem] tracking-[0.25em] uppercase text-rose mb-3">Upcycling & retouches</p>
+            <p class="text-muted text-[0.92rem] leading-[1.8]">
+              Un vêtement démodé ou abîmé ? Plutôt que de jeter, je le transforme
+              en <strong class="text-ink font-medium">pièce unique</strong>.
+            </p>
+          </div>
+
+          <blockquote class="mt-14 lg:mt-16 reveal">
+            <p class="font-display italic font-light text-xl lg:text-[1.55rem] leading-snug text-ink max-w-sm">
+              « Le sur-mesure, c'est la fin des compromis de la cabine d'essayage. »
+            </p>
+            <footer class="font-mono text-[0.62rem] tracking-[0.22em] uppercase text-muted mt-4">— Delphine Roger</footer>
+          </blockquote>
+        </div>
+
+        <div class="lg:col-span-7 reveal">
+          <figure class="gallery-item block" role="button" tabindex="0" aria-label="Agrandir : robe sur-mesure portée au village">
+            <div class="gallery-frame aspect-square">
+              <picture><source srcset="images/surmesure-robe.webp" type="image/webp"><img src="images/surmesure-robe.jpg" alt="Robe longue sur-mesure turquoise et blanche à volants, portée dans une rue de Castelnau-de-Guers" loading="lazy"></picture>
+            </div>
+            <figcaption class="gallery-caption gallery-caption-light">Robe longue sur-mesure, volants cousus main <span>Pièce unique</span></figcaption>
+          </figure>
+          <figure class="gallery-item block w-full sm:w-3/5 sm:ml-auto mt-3 lg:mt-5 reveal" role="button" tabindex="0" aria-label="Agrandir : détail de robe fleurie">
+            <div class="gallery-frame aspect-[4/3]">
+              <picture><source srcset="images/atelier-detail.webp" type="image/webp"><img src="images/atelier-detail.jpg" alt="Détail d'une robe brodée de fleurs sur mannequin de couture" style="object-position: 50% 38%;" loading="lazy"></picture>
+            </div>
+            <figcaption class="gallery-caption gallery-caption-light">Broderie fleurie, pièce unique <span>Détail</span></figcaption>
+          </figure>
+        </div>
+
       </div>
     </div>
   </section>
 
 
   <!-- ============================================ -->
-  <!-- PROCESSUS                                    -->
+  <!-- PIÈCE N°3 — CONFECTION D'INTÉRIEUR           -->
   <!-- ============================================ -->
-  <section class="pt-10 pb-20 lg:pt-12 lg:pb-28">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
-      <div class="text-center mb-10 reveal">
-        <div class="deco-line-center mb-6"></div>
-        <p class="text-[0.7rem] tracking-[0.3em] uppercase text-gold mb-5 font-body font-medium">Comment ça marche</p>
-        <h2 class="font-display text-4xl md:text-[3.5rem] font-light">Mon processus</h2>
-      </div>
+  <section id="confection" class="bg-ecru stitch-top">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 pt-20 lg:pt-28 pb-16 lg:pb-24">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-      <div class="grid md:grid-cols-4 gap-8 lg:gap-12 reveal-stagger">
-        <div class="text-center reveal-child process-step process-line relative">
-          <div class="w-20 h-20 mx-auto mb-8 rounded-full border border-gold/30 flex items-center justify-center transition-all duration-500 hover:border-gold hover:bg-gold/5">
-            <span class="font-display text-2xl text-gold font-light">01</span>
+        <!-- Avant / Après -->
+        <div class="lg:col-span-6 reveal">
+          <div id="ba-slider" class="ba-slider aspect-[5/6] lg:aspect-[4/5]" aria-label="Comparaison avant / après : fauteuil retapissé">
+            <picture class="ba-after"><source srcset="images/interieur-apres.webp" type="image/webp"><img src="images/interieur-apres.jpg" alt="Fauteuil après : retapissé d'un tissu feuillage bleu-vert" draggable="false"></picture>
+            <div class="ba-before-wrap">
+              <picture class="ba-before"><source srcset="images/interieur-avant.webp" type="image/webp"><img src="images/interieur-avant.jpg" alt="Fauteuil avant : assise usée et abîmée" draggable="false"></picture>
+            </div>
+            <span class="ba-tag ba-tag-before">Avant</span>
+            <span class="ba-tag ba-tag-after">Après</span>
+            <div class="ba-handle" role="slider" tabindex="0" aria-label="Faire glisser pour comparer" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+              <span class="ba-grip">&#8596;</span>
+            </div>
           </div>
-          <h3 class="font-display text-xl mb-3 font-light">Consultation</h3>
-          <p class="text-muted text-[0.85rem] leading-relaxed">
-            Nous échangeons sur votre projet, vos envies, votre style et votre budget. Je vous conseille sur les matières et les coupes.
-          </p>
+          <p class="font-mono text-[0.62rem] tracking-[0.2em] uppercase text-muted mt-4">Faites glisser — renaissance d'un fauteuil</p>
         </div>
 
-        <div class="text-center reveal-child process-step process-line relative">
-          <div class="w-20 h-20 mx-auto mb-8 rounded-full border border-gold/30 flex items-center justify-center transition-all duration-500 hover:border-gold hover:bg-gold/5">
-            <span class="font-display text-2xl text-gold font-light">02</span>
+        <!-- Texte -->
+        <div class="lg:col-span-6 reveal">
+          <p class="piece-label">Pièce N°3 — La maison</p>
+          <h2 class="font-display font-light text-[2.6rem] md:text-[3.4rem] leading-[1.05] tracking-[-0.01em] mb-8">
+            Confection <em class="text-rose font-normal">d'intérieur</em>
+          </h2>
+          <div class="space-y-5 text-muted leading-[1.8] text-[0.95rem] max-w-lg">
+            <p>
+              Rideaux, coussins, housses, têtes de lit, abat-jour —
+              cousus aux dimensions exactes de votre décor.
+              Même un fauteuil fatigué repart <strong class="text-ink font-medium">habillé de neuf</strong>.
+            </p>
           </div>
-          <h3 class="font-display text-xl mb-3 font-light">Conception</h3>
-          <p class="text-muted text-[0.85rem] leading-relaxed">
-            Je prends vos mesures et dessine votre modèle. Ensemble, nous choisissons les tissus et les finitions.
-          </p>
-        </div>
-
-        <div class="text-center reveal-child process-step process-line relative">
-          <div class="w-20 h-20 mx-auto mb-8 rounded-full border border-gold/30 flex items-center justify-center transition-all duration-500 hover:border-gold hover:bg-gold/5">
-            <span class="font-display text-2xl text-gold font-light">03</span>
-          </div>
-          <h3 class="font-display text-xl mb-3 font-light">Confection</h3>
-          <p class="text-muted text-[0.85rem] leading-relaxed">
-            La pièce prend forme dans mon atelier. Chaque couture, chaque finition est réalisée avec le plus grand soin.
-          </p>
-        </div>
-
-        <div class="text-center reveal-child process-step relative">
-          <div class="w-20 h-20 mx-auto mb-8 rounded-full border border-gold/30 flex items-center justify-center transition-all duration-500 hover:border-gold hover:bg-gold/5">
-            <span class="font-display text-2xl text-gold font-light">04</span>
-          </div>
-          <h3 class="font-display text-xl mb-3 font-light">Essayage final</h3>
-          <p class="text-muted text-[0.85rem] leading-relaxed">
-            Les derniers ajustements pour un tombé parfait. Votre vêtement est prêt — il ne reste plus qu'à le porter.
-          </p>
+          <a href="#contact" class="btn-primary mt-10 inline-flex">Demander un devis</a>
         </div>
       </div>
+
+      <!-- Salon -->
+      <figure class="gallery-item block mt-12 lg:mt-16 reveal" role="button" tabindex="0" aria-label="Agrandir : salon d'extérieur">
+        <div class="gallery-frame aspect-[16/9] lg:aspect-[21/8]">
+          <picture><source srcset="images/interieur-salon.webp" type="image/webp"><img src="images/interieur-salon.jpg" alt="Salon d'extérieur avec coussins sur-mesure roses et écrus" loading="lazy"></picture>
+        </div>
+        <figcaption class="gallery-caption gallery-caption-light">Coussins d'extérieur sur-mesure <span>Terrasse privée</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- PIÈCE N°4 — LA MÉTHODE                       -->
+  <!-- ============================================ -->
+  <section id="methode" class="bg-calicot stitch-top">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 pt-20 lg:pt-28 pb-20 lg:pb-28">
+      <div class="max-w-2xl mb-14 lg:mb-20 reveal">
+        <p class="piece-label">Pièce N°4 — Le déroulé</p>
+        <h2 class="font-display font-light text-[2.6rem] md:text-[3.4rem] leading-[1.05] tracking-[-0.01em]">
+          De l'idée <em class="text-rose font-normal">au dernier point</em>
+        </h2>
+      </div>
+
+      <ol class="method-thread grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12 reveal-stagger">
+        <li class="method-step reveal-child">
+          <span class="method-num">01</span>
+          <h3 class="font-display text-xl font-normal mt-5 mb-3">Consultation</h3>
+          <p class="text-muted text-[0.88rem] leading-[1.75]">
+            On parle projet, style et budget — à l'atelier ou par téléphone.
+          </p>
+        </li>
+        <li class="method-step reveal-child">
+          <span class="method-num">02</span>
+          <h3 class="font-display text-xl font-normal mt-5 mb-3">Patron & mesures</h3>
+          <p class="text-muted text-[0.88rem] leading-[1.75]">
+            Mesures, dessin du modèle, choix des tissus et des finitions.
+          </p>
+        </li>
+        <li class="method-step reveal-child">
+          <span class="method-num">03</span>
+          <h3 class="font-display text-xl font-normal mt-5 mb-3">Confection</h3>
+          <p class="text-muted text-[0.88rem] leading-[1.75]">
+            Coupe et assemblage à l'atelier, sans sous-traitance.
+          </p>
+        </li>
+        <li class="method-step reveal-child">
+          <span class="method-num">04</span>
+          <h3 class="font-display text-xl font-normal mt-5 mb-3">Essayage final</h3>
+          <p class="text-muted text-[0.88rem] leading-[1.75]">
+            Derniers ajustements pour un tombé parfait.
+          </p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -803,98 +662,84 @@
   <!-- ============================================ -->
   <!-- CONTACT                                      -->
   <!-- ============================================ -->
-  <section id="contact" class="pt-10 pb-20 lg:pt-12 lg:pb-28 bg-charcoal text-cream">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+  <section id="contact" class="bg-encre text-calicot section-dark">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 pt-20 lg:pt-28 pb-16 lg:pb-24">
+      <div class="grid lg:grid-cols-12 gap-14 lg:gap-20">
+
         <!-- Info -->
-        <div class="reveal-left">
-          <div class="deco-line mb-6" style="background: var(--color-accent);"></div>
-          <p class="text-[0.7rem] tracking-[0.3em] uppercase text-gold mb-5 font-body font-medium">Contactez-moi</p>
-          <h2 class="font-display text-4xl md:text-[3.5rem] font-light leading-[1.05] mb-6">
-            Parlons de votre<br>
-            <span class="italic text-gold-light">prochain projet</span>
+        <div class="lg:col-span-5 reveal">
+          <p class="piece-label piece-label-dark">Dernière pièce — Contact</p>
+          <h2 class="font-display font-light text-[2.6rem] md:text-[3.4rem] leading-[1.05] tracking-[-0.01em] mb-7">
+            Parlons de votre <em class="text-rose-clair font-normal">projet</em>
           </h2>
-          <p class="text-cream/50 text-[0.9rem] leading-[1.85] mb-12">
-            Prêt(e) à incarner votre projet&nbsp;? Que vous rêviez d'un costume de scène, d'une robe de mariée ou d'un intérieur sur mesure, contactez-moi pour créer ensemble une pièce qui vous ressemble.
+          <p class="text-calicot/55 text-[0.95rem] leading-[1.8] mb-12 max-w-md">
+            Décrivez votre idée en quelques lignes — je réponds rapidement,
+            avec un premier avis et un devis.
           </p>
 
-          <div class="space-y-8">
-            <div class="flex items-start gap-5">
-              <span class="text-gold text-sm mt-1">&diamond;</span>
-              <div>
-                <p class="font-display text-lg font-light mb-1">Atelier</p>
-                <p class="text-cream/45 text-[0.85rem] leading-relaxed">Delphine ROGER<br>2, rue Bombe Cul<br>34120 Castelnau-de-Guers</p>
-              </div>
+          <dl class="space-y-7">
+            <div>
+              <dt class="font-mono text-[0.62rem] tracking-[0.25em] uppercase text-rose-clair mb-2">Atelier</dt>
+              <dd class="text-calicot/70 text-[0.95rem] leading-relaxed">Delphine Roger<br>2, rue Bombe Cul<br>34120 Castelnau-de-Guers</dd>
             </div>
-
-            <div class="flex items-start gap-5">
-              <span class="text-gold text-sm mt-1">&diamond;</span>
-              <div>
-                <p class="font-display text-lg font-light mb-1">Téléphone</p>
-                <a href="tel:+33789575561" class="text-cream/45 text-[0.85rem] hover:text-gold transition-colors duration-300">07.89.57.55.61</a>
-              </div>
+            <div>
+              <dt class="font-mono text-[0.62rem] tracking-[0.25em] uppercase text-rose-clair mb-2">Téléphone</dt>
+              <dd><a href="tel:+33789575561" class="text-calicot/70 text-[0.95rem] hover:text-rose-clair transition-colors duration-300">07 89 57 55 61</a></dd>
             </div>
-
-            <div class="flex items-start gap-5">
-              <span class="text-gold text-sm mt-1">&diamond;</span>
-              <div>
-                <p class="font-display text-lg font-light mb-1">Email</p>
-                <a href="mailto:roger.delphe1@orange.fr" class="text-cream/45 text-[0.85rem] hover:text-gold transition-colors duration-300">roger.delphe1@orange.fr</a>
-              </div>
+            <div>
+              <dt class="font-mono text-[0.62rem] tracking-[0.25em] uppercase text-rose-clair mb-2">Email</dt>
+              <dd><a href="mailto:roger.delphe1@orange.fr" class="text-calicot/70 text-[0.95rem] hover:text-rose-clair transition-colors duration-300">roger.delphe1@orange.fr</a></dd>
             </div>
-          </div>
-
-          <!-- Social -->
-          <div class="mt-12 pt-8 border-t border-cream/8 flex items-center gap-6">
-            <a href="https://www.facebook.com/delphine.roger.75248" target="_blank" rel="noopener" class="text-cream/30 hover:text-gold transition-colors duration-300" aria-label="Facebook">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.738-.9 10.126-5.864 10.126-11.854z"/>
-              </svg>
-            </a>
-          </div>
+            <div>
+              <dt class="font-mono text-[0.62rem] tracking-[0.25em] uppercase text-rose-clair mb-2">Suivre</dt>
+              <dd>
+                <a href="https://www.facebook.com/delphine.roger.75248" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-calicot/70 text-[0.95rem] hover:text-rose-clair transition-colors duration-300">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.738-.9 10.126-5.864 10.126-11.854z"/></svg>
+                  Facebook
+                </a>
+              </dd>
+            </div>
+          </dl>
         </div>
 
         <!-- Form + Map -->
-        <div class="space-y-10 reveal-right">
-          <form id="contact-form" class="space-y-8">
-            <div class="grid sm:grid-cols-2 gap-8">
+        <div class="lg:col-span-7 space-y-10 reveal">
+          <form id="contact-form" class="space-y-7" novalidate>
+            <div class="grid sm:grid-cols-2 gap-7">
               <div>
                 <label for="name" class="form-label">Nom</label>
-                <input type="text" id="name" name="name" required class="form-input" placeholder="Votre nom">
+                <input type="text" id="name" name="name" required class="form-input" placeholder="Votre nom" autocomplete="name">
               </div>
               <div>
                 <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" required class="form-input" placeholder="votre@email.com">
+                <input type="email" id="email" name="email" required class="form-input" placeholder="votre@email.com" autocomplete="email">
               </div>
             </div>
 
             <div>
-              <label for="service" class="form-label">Service</label>
+              <label for="service" class="form-label">Type de projet</label>
               <select id="service" name="service" class="form-input appearance-none">
-                <option value="">Choisir un service</option>
-                <option value="costume">Costumes de scène</option>
-                <option value="mariee">Robe de mariée</option>
-                <option value="creation">Création sur mesure</option>
-                <option value="retouche">Retouches</option>
-                <option value="upcycling">Upcycling</option>
-                <option value="confection">Confection d'intérieur</option>
-                <option value="autre">Autre</option>
+                <option value="">Choisir…</option>
+                <option value="Costume de scène">Costume de scène</option>
+                <option value="Robe de mariée">Robe de mariée</option>
+                <option value="Création sur mesure">Création sur mesure</option>
+                <option value="Retouches">Retouches</option>
+                <option value="Upcycling">Upcycling</option>
+                <option value="Confection d'intérieur">Confection d'intérieur</option>
+                <option value="Autre">Autre</option>
               </select>
             </div>
 
             <div>
-              <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" rows="4" required class="form-input resize-none" placeholder="Décrivez votre projet..."></textarea>
+              <label for="message" class="form-label">Votre projet</label>
+              <textarea id="message" name="message" rows="4" required class="form-input resize-none" placeholder="Décrivez votre idée, vos délais, vos envies…"></textarea>
             </div>
 
-            <button type="submit" class="btn-primary w-full sm:w-auto">
-              Envoyer ma demande
-            </button>
-            <p id="form-status" role="status" aria-live="polite" class="mt-4 text-sm"></p>
+            <button type="submit" class="btn-primary">Envoyer ma demande</button>
+            <p id="form-status" role="status" aria-live="polite" class="text-sm text-rose-clair"></p>
           </form>
 
-          <!-- Map embed -->
-          <div class="aspect-video overflow-hidden opacity-70 hover:opacity-100 transition-opacity duration-500">
+          <div class="map-frame aspect-video">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.5!2d3.4923!3d43.449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCastelnau-de-Guers!5e0!3m2!1sfr!2sfr!4v1"
               width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
@@ -911,22 +756,22 @@
   <!-- ============================================ -->
   <!-- FOOTER                                       -->
   <!-- ============================================ -->
-  <footer class="py-16 bg-[#16111F] text-cream/30">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-        <a href="#accueil" class="font-display text-xl text-cream/70">
-          <span class="font-semibold">Delphine</span><span class="font-light text-cream/40"> Roger</span>
-        </a>
+  <footer class="bg-[#120E1A] text-calicot/35 stitch-top-dark">
+    <div class="max-w-[1440px] mx-auto px-5 lg:px-12 py-12 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <a href="#accueil" class="flex items-baseline gap-2.5">
+        <span class="font-display text-lg text-calicot/70">Delph Couture</span>
+        <span class="font-mono text-[0.6rem] tracking-[0.2em] text-rose-clair/70">N°34</span>
+      </a>
 
-        <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-[0.65rem] tracking-[0.15em] uppercase">
-          <a href="mentions-legales.html" class="hover:text-cream/60 transition-colors duration-300">Mentions légales</a>
-          <a href="mentions-legales.html" class="hover:text-cream/60 transition-colors duration-300">Confidentialité (RGPD)</a>
-        </div>
-
-        <p class="text-[0.75rem]">
-          &copy; 2025 Delphine Roger &middot; SIRET 794 299 909 00018
-        </p>
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 font-mono text-[0.6rem] tracking-[0.18em] uppercase">
+        <a href="https://www.facebook.com/delphine.roger.75248" target="_blank" rel="noopener" class="link-stitch text-rose-clair/80 hover:text-rose-clair transition-colors duration-300">Suivre l'atelier &nearr;</a>
+        <a href="mentions-legales.html" class="link-stitch hover:text-calicot/70 transition-colors duration-300">Mentions légales</a>
+        <a href="mentions-legales.html" class="link-stitch hover:text-calicot/70 transition-colors duration-300">Confidentialité (RGPD)</a>
       </div>
+
+      <p class="font-mono text-[0.62rem] tracking-[0.08em]">
+        &copy; 2026 Delphine Roger · SIRET 794 299 909 00018
+      </p>
     </div>
   </footer>
 
@@ -934,33 +779,31 @@
   <!-- ============================================ -->
   <!-- LIGHTBOX                                     -->
   <!-- ============================================ -->
-  <div id="lightbox" class="fixed inset-0 z-[100] bg-[#1A1525]/97 flex items-center justify-center opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-label="Galerie">
-    <button id="lightbox-close" class="absolute top-8 right-8 text-cream/40 hover:text-cream transition-colors duration-300 z-10" aria-label="Fermer">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie en plein écran">
+    <button id="lightbox-close" aria-label="Fermer">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
-    <button id="lightbox-prev" class="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream transition-colors duration-300 z-10 p-2" aria-label="Image précédente">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 19l-7-7 7-7"/>
-      </svg>
+    <button id="lightbox-prev" aria-label="Image précédente">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 19l-7-7 7-7"/></svg>
     </button>
-    <button id="lightbox-next" class="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream transition-colors duration-300 z-10 p-2" aria-label="Image suivante">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7"/>
-      </svg>
+    <button id="lightbox-next" aria-label="Image suivante">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7"/></svg>
     </button>
-    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain">
-    <p class="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/30 text-[0.65rem] tracking-[0.2em] uppercase">Flèches pour naviguer &middot; Échap pour fermer</p>
+    <figure>
+      <img id="lightbox-img" src="" alt="">
+      <figcaption class="flex items-baseline gap-6">
+        <span id="lightbox-caption" class="font-mono text-[0.62rem] tracking-[0.2em] uppercase"></span>
+        <span id="lightbox-counter" class="font-mono text-[0.62rem] tracking-[0.2em]"></span>
+      </figcaption>
+    </figure>
   </div>
 
   <noscript>
-    <div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#2D2438;color:#FDFAF5;padding:1rem;text-align:center;font-family:sans-serif;font-size:0.9rem;">
-      Ce site utilise JavaScript pour certaines fonctionnalités (menu mobile, galerie). Contactez Delphine au <a href="tel:+33789575561" style="color:#C9A84C;">07.89.57.55.61</a> ou <a href="mailto:roger.delphe1@orange.fr" style="color:#C9A84C;">roger.delphe1@orange.fr</a>.
+    <div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#191521;color:#F6F2EC;padding:1rem;text-align:center;font-family:sans-serif;font-size:0.9rem;">
+      Ce site utilise JavaScript pour certaines fonctionnalités (menu mobile, galerie). Contactez Delphine au <a href="tel:+33789575561" style="color:#E387A0;">07 89 57 55 61</a> ou <a href="mailto:roger.delphe1@orange.fr" style="color:#E387A0;">roger.delphe1@orange.fr</a>.
     </div>
   </noscript>
 
-  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

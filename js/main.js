@@ -1,85 +1,67 @@
-/* ============================================ */
-/* LENIS SMOOTH SCROLL                          */
-/* ============================================ */
+/* ================================================================
+   DELPH COUTURE 34 — interactions
+   Nav state · mobile menu · scroll reveal · lightbox ·
+   avant/après slider · contact form (mailto)
+   ================================================================ */
 
-const lenis = new Lenis({
-  duration: 1.4,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smoothWheel: true,
-});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
-
-/* ============================================ */
-/* NAVBAR SCROLL BEHAVIOR                       */
-/* ============================================ */
+/* ---------------------------------------------------------------
+   NAVBAR — gains a backdrop once past the hero text
+   --------------------------------------------------------------- */
 
 const navbar = document.getElementById('navbar');
-const heroSection = document.getElementById('accueil');
 
 function updateNavbar() {
-  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-  if (window.scrollY > heroBottom - 100) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
 }
-
 window.addEventListener('scroll', updateNavbar, { passive: true });
 updateNavbar();
 
+/* Scrollspy — highlight the nav link of the section in view */
+const navLinks = document.querySelectorAll('.nav-link');
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-35% 0px -60% 0px' });
 
-/* ============================================ */
-/* MOBILE MENU — Full-screen dark overlay       */
-/* ============================================ */
+['realisations', 'couture', 'confection', 'methode', 'contact', 'accueil'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) spyObserver.observe(el);
+});
+
+
+/* ---------------------------------------------------------------
+   MOBILE MENU
+   --------------------------------------------------------------- */
 
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 let menuOpen = false;
 
-menuToggle.addEventListener('click', () => {
-  menuOpen = !menuOpen;
-  if (menuOpen) {
-    mobileMenu.classList.remove('pointer-events-none');
-    mobileMenu.classList.add('mobile-menu-open');
-    void mobileMenu.offsetHeight;
-    mobileMenu.style.opacity = '1';
-    menuToggle.classList.add('menu-open');
-    document.body.style.overflow = 'hidden';
-    lenis.stop();
-  } else {
-    closeMenu();
-  }
-});
-
-function closeMenu() {
-  menuOpen = false;
-  mobileMenu.classList.remove('mobile-menu-open');
-  mobileMenu.style.opacity = '0';
-  menuToggle.classList.remove('menu-open');
-  document.body.style.overflow = '';
-  lenis.start();
-  setTimeout(() => {
-    if (!menuOpen) mobileMenu.classList.add('pointer-events-none');
-  }, 500);
+function setMenu(open) {
+  menuOpen = open;
+  mobileMenu.classList.toggle('open', open);
+  mobileMenu.setAttribute('aria-hidden', String(!open));
+  menuToggle.classList.toggle('menu-open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
 }
 
-document.querySelectorAll('.mobile-nav-link').forEach(link => {
-  link.addEventListener('click', closeMenu);
+menuToggle.addEventListener('click', () => setMenu(!menuOpen));
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => setMenu(false));
 });
 
 
-/* ============================================ */
-/* SCROLL REVEAL                                */
-/* ============================================ */
+/* ---------------------------------------------------------------
+   SCROLL REVEAL
+   --------------------------------------------------------------- */
 
-const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger');
+const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -88,59 +70,54 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.1,
-  rootMargin: '0px 0px -40px 0px'
-});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 revealElements.forEach(el => revealObserver.observe(el));
 
 
-/* ============================================ */
-/* GALLERY — Click delegation, keyboard, lightbox */
-/* ============================================ */
+/* ---------------------------------------------------------------
+   LIGHTBOX
+   --------------------------------------------------------------- */
 
-const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
-const lightboxPrev = document.getElementById('lightbox-prev');
-const lightboxNext = document.getElementById('lightbox-next');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxCounter = document.getElementById('lightbox-counter');
 
-let currentLightboxIndex = -1;
+let currentIndex = -1;
+
+function showImage(index) {
+  const item = galleryItems[index];
+  const img = item && item.querySelector('img');
+  if (!img) return;
+  currentIndex = index;
+  lightboxImg.style.opacity = '0';
+  lightboxImg.onload = () => { lightboxImg.style.opacity = '1'; };
+  lightboxImg.src = img.currentSrc || img.src;
+  lightboxImg.alt = img.alt;
+  const caption = item.querySelector('.gallery-caption');
+  lightboxCaption.textContent = caption ? caption.childNodes[0].textContent.trim() : '';
+  lightboxCounter.textContent = (index + 1) + ' / ' + galleryItems.length;
+}
 
 function openLightbox(index) {
-  const item = galleryItems[index];
-  if (!item) return;
-  const img = item.querySelector('img');
-  if (!img || !img.src) return;
-
-  currentLightboxIndex = index;
-  lightboxImg.src = img.src;
-  lightboxImg.alt = img.alt;
+  showImage(index);
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
-  lenis.stop();
 }
 
 function closeLightbox() {
   lightbox.classList.remove('active');
-  currentLightboxIndex = -1;
+  currentIndex = -1;
   document.body.style.overflow = '';
-  lenis.start();
 }
 
 function navigateLightbox(direction) {
-  if (currentLightboxIndex === -1) return;
-  const count = galleryItems.length;
-  currentLightboxIndex = (currentLightboxIndex + direction + count) % count;
-  const img = galleryItems[currentLightboxIndex].querySelector('img');
-  if (img) {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-  }
+  if (currentIndex === -1) return;
+  showImage((currentIndex + direction + galleryItems.length) % galleryItems.length);
 }
 
-// Attach click + keyboard handlers to each gallery item
 galleryItems.forEach((item, index) => {
   item.addEventListener('click', () => openLightbox(index));
   item.addEventListener('keydown', (e) => {
@@ -151,20 +128,17 @@ galleryItems.forEach((item, index) => {
   });
 });
 
-// Lightbox controls
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) closeLightbox();
 });
-if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
-if (lightboxNext) lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
-const lightboxClose = document.getElementById('lightbox-close');
-if (lightboxClose) lightboxClose.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
 
-// Keyboard nav
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeLightbox();
-    if (menuOpen) closeMenu();
+    if (menuOpen) setMenu(false);
   }
   if (lightbox.classList.contains('active')) {
     if (e.key === 'ArrowLeft') navigateLightbox(-1);
@@ -173,35 +147,95 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-/* ============================================ */
-/* GALLERY CUSTOM CURSOR                        */
-/* ============================================ */
+/* ---------------------------------------------------------------
+   QUICK CHANGE — costume switcher
+   --------------------------------------------------------------- */
 
-const galleryCursor = document.getElementById('gallery-cursor');
-if (galleryCursor && window.matchMedia('(pointer: fine)').matches) {
-  let cursorActive = false;
-  document.addEventListener('mousemove', (e) => {
-    if (cursorActive) {
-      galleryCursor.style.left = e.clientX - 36 + 'px';
-      galleryCursor.style.top = e.clientY - 36 + 'px';
+const qcCard = document.getElementById('qc-card');
+
+if (qcCard) {
+  const qcLayers = qcCard.querySelectorAll('.qc-layer');
+  const qcBtns = document.querySelectorAll('.qc-btn');
+  let qcIndex = 0;
+
+  function setCostume(i) {
+    qcIndex = i;
+    qcLayers.forEach((layer, j) => layer.classList.toggle('qc-active', j === i));
+    qcBtns.forEach((btn, j) => {
+      btn.classList.toggle('active', j === i);
+      btn.setAttribute('aria-pressed', String(j === i));
+    });
+  }
+
+  qcCard.addEventListener('click', () => setCostume(1 - qcIndex));
+  qcCard.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setCostume(1 - qcIndex);
     }
   });
-  galleryItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      cursorActive = true;
-      galleryCursor.classList.add('active');
+  qcBtns.forEach((btn) => btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setCostume(Number(btn.dataset.qc));
+  }));
+}
+
+
+/* ---------------------------------------------------------------
+   AVANT / APRÈS SLIDER
+   --------------------------------------------------------------- */
+
+const baSlider = document.getElementById('ba-slider');
+
+if (baSlider) {
+  const handle = baSlider.querySelector('.ba-handle');
+  let dragging = false;
+
+  /* nudge the handle once when the slider first becomes visible */
+  const hintObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        baSlider.classList.add('hint');
+        hintObserver.disconnect();
+      }
     });
-    item.addEventListener('mouseleave', () => {
-      cursorActive = false;
-      galleryCursor.classList.remove('active');
-    });
+  }, { threshold: 0.5 });
+  hintObserver.observe(baSlider);
+
+  function setPosition(clientX) {
+    const rect = baSlider.getBoundingClientRect();
+    const pct = Math.min(96, Math.max(4, ((clientX - rect.left) / rect.width) * 100));
+    baSlider.style.setProperty('--ba', pct + '%');
+    handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+  }
+
+  baSlider.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    baSlider.setPointerCapture(e.pointerId);
+    setPosition(e.clientX);
+  });
+  baSlider.addEventListener('pointermove', (e) => {
+    if (dragging) setPosition(e.clientX);
+  });
+  baSlider.addEventListener('pointerup', () => { dragging = false; });
+  baSlider.addEventListener('pointercancel', () => { dragging = false; });
+
+  handle.addEventListener('keydown', (e) => {
+    const current = parseFloat(getComputedStyle(baSlider).getPropertyValue('--ba')) || 50;
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      const next = current + (e.key === 'ArrowLeft' ? -5 : 5);
+      const pct = Math.min(96, Math.max(4, next));
+      baSlider.style.setProperty('--ba', pct + '%');
+      handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+    }
   });
 }
 
 
-/* ============================================ */
-/* CONTACT FORM — with feedback                 */
-/* ============================================ */
+/* ---------------------------------------------------------------
+   CONTACT FORM — opens the visitor's mail client
+   --------------------------------------------------------------- */
 
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
@@ -216,71 +250,16 @@ if (contactForm) {
     const message = contactForm.querySelector('#message').value.trim();
 
     if (!name || !email || !message) {
-      if (formStatus) {
-        formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
-        formStatus.className = 'mt-4 text-sm text-gold';
-      }
+      formStatus.textContent = 'Merci de remplir votre nom, votre email et votre message.';
       return;
     }
 
-    const subject = encodeURIComponent(`Demande de ${service || 'renseignement'} — ${name}`);
+    const subject = encodeURIComponent(`Demande — ${service || 'renseignement'} — ${name}`);
     const body = encodeURIComponent(
-      `Bonjour Delphine,\n\n${message}\n\n---\nNom : ${name}\nEmail : ${email}\nService : ${service || 'Non précisé'}`
+      `Bonjour Delphine,\n\n${message}\n\n---\nNom : ${name}\nEmail : ${email}\nProjet : ${service || 'Non précisé'}`
     );
 
-    if (formStatus) {
-      formStatus.textContent = 'Ouverture de votre messagerie… Si rien ne se passe, écrivez directement à roger.delphe1@orange.fr';
-      formStatus.className = 'mt-4 text-sm text-gold-light';
-    }
-
+    formStatus.textContent = 'Ouverture de votre messagerie… Si rien ne se passe, écrivez à roger.delphe1@orange.fr';
     window.location.href = `mailto:roger.delphe1@orange.fr?subject=${subject}&body=${body}`;
   });
-}
-
-
-/* ============================================ */
-/* SMOOTH SCROLL via Lenis                      */
-/* ============================================ */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href === '#' || href === '#!') return;
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      const offset = window.innerWidth >= 1024 ? -96 : -80;
-      lenis.scrollTo(target, { offset });
-    }
-  });
-});
-
-
-/* ============================================ */
-/* PARALLAX IMAGES — throttled via rAF          */
-/* ============================================ */
-
-const parallaxImages = document.querySelectorAll('.parallax-img');
-
-if (parallaxImages.length && window.matchMedia('(pointer: fine)').matches) {
-  let ticking = false;
-
-  function updateParallax() {
-    const vh = window.innerHeight;
-    parallaxImages.forEach(img => {
-      const rect = img.getBoundingClientRect();
-      // Only apply if in viewport (±300px buffer)
-      if (rect.bottom < -300 || rect.top > vh + 300) return;
-      const yPos = (rect.top - vh / 2) * 0.06;
-      img.style.transform = `translateY(${yPos}px) scale(1.08)`;
-    });
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }, { passive: true });
 }

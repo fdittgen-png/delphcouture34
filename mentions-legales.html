@@ -9,66 +9,78 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #FDFAF5;
-      --text: #2D2438;
-      --muted: #7B6F94;
-      --accent: #C9A84C;
+      --calicot: #F6F2EC;
+      --ink: #26202E;
+      --muted: #6F6779;
+      --rose: #A82B4F;
+      --rose-clair: #E387A0;
+      --fil: #CFC6B8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      background: var(--calicot);
+      color: var(--ink);
       line-height: 1.75;
-      padding: 4rem 1.5rem;
-      font-weight: 300;
+      padding: 5rem 1.25rem 4rem;
+      -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 48rem; margin: 0 auto; }
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-    }
-    .subtitle {
-      font-size: 0.7rem;
+    .container { max-width: 44rem; margin: 0 auto; }
+    .piece-label {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 0.6rem;
       text-transform: uppercase;
       letter-spacing: 0.3em;
-      color: var(--accent);
-      margin-bottom: 3rem;
-      font-weight: 500;
+      color: var(--rose);
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 2.5rem;
+    }
+    .stitch-line {
+      height: 1px;
+      background-image: linear-gradient(90deg, var(--fil) 55%, transparent 55%);
+      background-size: 9px 1px;
+      width: 6rem;
+      margin: 0 0 3rem;
     }
     h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin: 2.5rem 0 1rem;
-      color: var(--text);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin: 2.5rem 0 0.75rem;
     }
     p { margin-bottom: 1rem; color: var(--muted); font-size: 0.95rem; }
-    strong { color: var(--text); font-weight: 500; }
-    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-    a:hover { border-bottom-color: var(--accent); }
+    strong { color: var(--ink); font-weight: 500; }
+    a { color: var(--rose); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+    a:hover { border-bottom-color: var(--rose); }
     .back {
       display: inline-block;
-      margin-top: 3rem;
+      margin-top: 3.5rem;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      font-weight: 500;
+      color: var(--ink);
+      border-bottom: 1px dashed var(--fil);
+      padding-bottom: 0.2rem;
     }
-    hr { border: none; height: 1px; background: var(--accent); opacity: 0.2; margin: 3rem 0; max-width: 5rem; }
+    .back:hover { color: var(--rose); border-bottom-color: var(--rose-clair); }
   </style>
 </head>
 <body>
   <main class="container">
-    <p class="subtitle">Information légale</p>
+    <p class="piece-label">Pièce annexe — Information légale</p>
     <h1>Mentions légales</h1>
-    <hr>
+    <div class="stitch-line"></div>
 
     <h2>Éditeur du site</h2>
     <p>

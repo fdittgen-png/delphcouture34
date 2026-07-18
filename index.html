@@ -320,21 +320,24 @@
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="lg:hidden" aria-hidden="true">
-      <div class="flex flex-col items-start justify-center h-full px-8 gap-2">
-        <span class="font-mono text-[0.6rem] tracking-[0.3em] uppercase text-rose-clair mb-4">Sommaire</span>
-        <a href="#realisations" class="mobile-nav-link">La Scène</a>
-        <a href="#couture" class="mobile-nav-link">Sur-Mesure</a>
-        <a href="#confection" class="mobile-nav-link">Intérieur</a>
-        <a href="#methode" class="mobile-nav-link">La Méthode</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
-        <div class="stitch-line w-24 my-6"></div>
-        <a href="tel:+33789575561" class="font-mono text-sm text-calicot/60 hover:text-rose-clair transition-colors">07 89 57 55 61</a>
-        <a href="mailto:roger.delphe1@orange.fr" class="font-mono text-sm text-calicot/60 hover:text-rose-clair transition-colors">roger.delphe1@orange.fr</a>
-      </div>
-    </div>
   </nav>
+
+  <!-- Mobile Menu — must stay a direct child of <body>: #navbar's backdrop-filter
+       makes the navbar the containing block for fixed descendants, which would
+       clip this overlay to the 4rem navbar strip -->
+  <div id="mobile-menu" class="lg:hidden" aria-hidden="true">
+    <nav class="flex flex-col items-start justify-center h-full px-8 gap-2" aria-label="Menu mobile">
+      <span class="font-mono text-[0.6rem] tracking-[0.3em] uppercase text-rose-clair mb-4">Sommaire</span>
+      <a href="#realisations" class="mobile-nav-link">La Scène</a>
+      <a href="#couture" class="mobile-nav-link">Sur-Mesure</a>
+      <a href="#confection" class="mobile-nav-link">Intérieur</a>
+      <a href="#methode" class="mobile-nav-link">La Méthode</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+      <div class="stitch-line w-24 my-6"></div>
+      <a href="tel:+33789575561" class="font-mono text-sm text-calicot/60 hover:text-rose-clair transition-colors">07 89 57 55 61</a>
+      <a href="mailto:roger.delphe1@orange.fr" class="font-mono text-sm text-calicot/60 hover:text-rose-clair transition-colors">roger.delphe1@orange.fr</a>
+    </nav>
+  </div>
 
 
   <!-- ============================================ -->

@@ -188,17 +188,38 @@ img {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* While the menu is open, the navbar (z-50, above the overlay) drops its light
+   backdrop so only the logo and the close (✕) button float on the dark menu */
+body.menu-open #navbar {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+body.menu-open .nav-logo { color: var(--calicot); }
+body.menu-open #navbar .text-rose { color: var(--rose-clair); }
+
 .mobile-nav-link {
   font-family: "Fraunces", Georgia, serif;
   font-size: 2rem;
   font-weight: 300;
   color: var(--calicot);
   padding: 0.35rem 0;
-  transition: color 0.3s, transform 0.3s var(--ease-out);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: color 0.3s, opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
+#mobile-menu.open .mobile-nav-link {
+  opacity: 1;
+  transform: none;
+}
+#mobile-menu.open .mobile-nav-link:nth-of-type(2) { transition-delay: 0.05s; }
+#mobile-menu.open .mobile-nav-link:nth-of-type(3) { transition-delay: 0.1s; }
+#mobile-menu.open .mobile-nav-link:nth-of-type(4) { transition-delay: 0.15s; }
+#mobile-menu.open .mobile-nav-link:nth-of-type(5) { transition-delay: 0.2s; }
 .mobile-nav-link:hover {
   color: var(--rose-clair);
-  transform: translateX(6px);
 }
 
 /* ----------------------------------------------------------------
@@ -799,4 +820,9 @@ select.form-input option {
   }
   .gallery-frame img { transition: none; }
   .ba-slider.hint .ba-grip { animation: none; }
+  .mobile-nav-link {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

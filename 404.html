@@ -8,68 +8,79 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Instrument+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --calicot: #F6F2EC;
+      --ink: #26202E;
+      --muted: #6F6779;
+      --rose: #A82B4F;
+      --rose-clair: #E387A0;
+      --fil: #CFC6B8;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: #FDFAF5;
-      color: #2D2438;
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      background: var(--calicot);
+      color: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 2rem;
       text-align: center;
+      -webkit-font-smoothing: antialiased;
     }
     .error-code {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(6rem, 20vw, 12rem);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(6rem, 20vw, 11rem);
       font-weight: 300;
-      line-height: 1;
-      color: #C9A84C;
       font-style: italic;
+      line-height: 1;
+      color: var(--rose);
     }
     .label {
-      font-size: 0.7rem;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 0.6rem;
       text-transform: uppercase;
       letter-spacing: 0.3em;
-      color: #7B6F94;
-      margin: 1rem 0 2rem;
+      color: var(--muted);
+      margin: 1.25rem 0 2rem;
     }
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-    p { color: #7B6F94; max-width: 32rem; margin: 0 auto 2.5rem; font-size: 0.95rem; line-height: 1.75; }
-    .cta {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: #C9A84C;
-      color: #1A1525;
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .cta:hover { background: #B8963E; }
-    .deco {
-      width: 3rem;
+    .stitch-line {
       height: 1px;
-      background: #C9A84C;
+      background-image: linear-gradient(90deg, var(--fil) 55%, transparent 55%);
+      background-size: 9px 1px;
+      width: 6rem;
       margin: 0 auto 2rem;
     }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    p { color: var(--muted); max-width: 30rem; margin: 0 auto 2.5rem; font-size: 0.95rem; line-height: 1.75; }
+    .cta {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      background: var(--rose);
+      color: var(--calicot);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .cta:hover { background: #8F2443; transform: translateY(-1px); }
   </style>
 </head>
 <body>
   <main>
     <div class="error-code">404</div>
-    <p class="label">Page introuvable</p>
-    <div class="deco"></div>
+    <p class="label">Pièce introuvable</p>
+    <div class="stitch-line"></div>
     <h1>Cette page n'existe pas</h1>
     <p>
       La page que vous cherchez a peut-être été déplacée ou n'existe plus. Retrouvez l'atelier de Delphine Roger sur la page d'accueil.

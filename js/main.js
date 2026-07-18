@@ -48,12 +48,23 @@ function setMenu(open) {
   mobileMenu.setAttribute('aria-hidden', String(!open));
   menuToggle.classList.toggle('menu-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
+  document.body.classList.toggle('menu-open', open);
   document.body.style.overflow = open ? 'hidden' : '';
+  if (open) {
+    mobileMenu.querySelector('a').focus();
+  } else {
+    menuToggle.focus();
+  }
 }
 
 menuToggle.addEventListener('click', () => setMenu(!menuOpen));
 mobileMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => setMenu(false));
+});
+
+/* the menu only exists below lg (1024px) — close it if the viewport grows */
+window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+  if (e.matches && menuOpen) setMenu(false);
 });
 
 

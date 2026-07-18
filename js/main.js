@@ -9,11 +9,22 @@
    --------------------------------------------------------------- */
 
 const navbar = document.getElementById('navbar');
+const darkSections = document.querySelectorAll('.section-dark, body > footer');
 
 function updateNavbar() {
   navbar.classList.toggle('scrolled', window.scrollY > 40);
+  const navH = navbar.offsetHeight;
+  let overDark = false;
+  darkSections.forEach(section => {
+    const r = section.getBoundingClientRect();
+    if (r.top < navH && r.bottom > navH * 0.5) overDark = true;
+  });
+  navbar.classList.toggle('over-dark', overDark);
 }
 window.addEventListener('scroll', updateNavbar, { passive: true });
+window.addEventListener('resize', updateNavbar, { passive: true });
+/* lazy-loaded images shift the layout without firing a scroll event */
+new ResizeObserver(updateNavbar).observe(document.body);
 updateNavbar();
 
 /* Scrollspy — highlight the nav link of the section in view */

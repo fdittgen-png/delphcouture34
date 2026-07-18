@@ -102,12 +102,26 @@ img {
   background: rgba(246, 242, 236, 0.86);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  transition: box-shadow 0.45s var(--ease-out);
+  transition: background-color 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
 }
 
 #navbar.scrolled {
   box-shadow: 0 1px 0 rgba(38, 32, 46, 0.07);
 }
+
+/* Night mode — while the navbar floats over a dark section it crosses over
+   too, instead of sitting as a grey band on the encre background */
+#navbar.over-dark { background: rgba(25, 21, 33, 0.8); }
+#navbar.over-dark.scrolled { box-shadow: 0 1px 0 rgba(246, 242, 236, 0.08); }
+#navbar.over-dark .nav-logo { color: var(--calicot); }
+#navbar.over-dark .nav-logo .text-rose { color: var(--rose-clair); }
+#navbar.over-dark .nav-link { color: rgba(246, 242, 236, 0.78); }
+#navbar.over-dark .nav-link:hover,
+#navbar.over-dark .nav-link.active { color: var(--rose-clair); }
+#navbar.over-dark .nav-link::after {
+  background-image: linear-gradient(90deg, var(--rose-clair) 55%, transparent 55%);
+}
+#navbar.over-dark .hamburger-line { background: var(--calicot); }
 
 .nav-logo {
   color: var(--ink);

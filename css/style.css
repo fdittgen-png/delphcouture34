@@ -669,8 +669,29 @@ body.menu-open #navbar .text-rose { color: var(--rose-clair); }
 @media (min-width: 1024px) {
   .method-step:last-child::before { right: 0; }
 }
+
+/* Below lg the steps stack in one column: the thread becomes a single
+   continuous vertical stitch running down through the nodes */
 @media (max-width: 1023px) {
-  .method-step::before { right: 0; }
+  .method-step {
+    padding-top: 0;
+    padding-left: 2.1rem;
+  }
+  .method-step::before {
+    top: 4px;
+    bottom: -3rem; /* bridge the 3rem row gap to the next node */
+    left: 4px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background-image: linear-gradient(180deg, var(--fil) 55%, transparent 55%);
+    background-size: 1px 9px;
+  }
+  .method-step:last-child::before { display: none; } /* le dernier point */
+  .method-step::after {
+    top: 4px;
+    left: 0;
+  }
 }
 
 .method-num {

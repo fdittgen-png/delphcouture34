@@ -80,6 +80,7 @@
     />
     <link rel="stylesheet" href="fonts/fonts.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/contact-card.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -98,7 +99,7 @@
             "@type": "LocalBusiness",
             "@id": "https://fdittgen-png.github.io/delphcouture34/#business",
             "name": "Delph Couture 34",
-            "alternateName": "Delphine Couture 34",
+            "alternateName": ["Delphine Couture", "Delphine Couture 34"],
             "description": "Atelier de Delphine Roger, couturière diplômée et costumière-créatrice certifiée à Castelnau-de-Guers, près de Pézenas. Costumes de scène, vêtements sur mesure, robes de mariée, retouches, upcycling et confection d’intérieur.",
             "url": "https://fdittgen-png.github.io/delphcouture34/",
             "image": "https://fdittgen-png.github.io/delphcouture34/images/scene-pied-de-poule.jpg",
@@ -728,60 +729,61 @@
         </div>
       </section>
       <section
-        class="contact section"
+        class="contact-card-section"
         id="contact"
         aria-labelledby="contact-title"
       >
-        <div class="container contact-grid">
-          <div class="contact-intro">
-            <p class="eyebrow">À VOTRE TOUR</p>
-            <h2 id="contact-title">Et si on créait<br /><em>la vôtre ?</em></h2>
-            <p>Une envie, une idée ?<br />Parlons-en.</p>
-            <a
-              class="button button-dark"
-              href="mailto:roger.delphe1@orange.fr?subject=Parlons%20de%20mon%20projet"
-              >Écrire à Delphine
-              <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 19 19 5M5 5h14v14" /></svg
-            ></a>
-            <p class="email-note">Ouvre votre messagerie.</p>
-          </div>
-          <div class="contact-info">
-            <div class="contact-row">
-              <span class="eyebrow">TÉLÉPHONE</span
-              ><a class="contact-phone" href="tel:+33789575561"
-                >07 89 57 55 61
-                <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 19 19 5M5 5h14v14" /></svg
-              ></a>
-            </div>
-            <div class="contact-row">
-              <span class="eyebrow">EMAIL</span
-              ><a class="contact-email" href="mailto:roger.delphe1@orange.fr"
-                >roger.delphe1@orange.fr
-                <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 19 19 5M5 5h14v14" /></svg
-              ></a>
-            </div>
-            <div class="contact-row address-row">
-              <div>
-                <span class="eyebrow">L’ATELIER</span>
-                <address>
-                  Delphine Roger<br />2, rue Bombe Cul<br />34120
-                  Castelnau-de-Guers
-                </address>
-                <p class="appointment">Sur rendez-vous.</p>
-              </div>
+        <div class="container">
+          <div class="business-card">
+            <h2 class="business-card-brand" id="contact-title">
+              <span class="card-accessible-name">Delphine Couture</span>
+              <!-- Preserve the exact emblem and script from Delphine's card.
+                   The source photograph stays intact; this viewport presents
+                   only the upright artwork, with paper tones normalized in CSS. -->
+              <svg
+                viewBox="390 10 780 670"
+                width="780"
+                height="670"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <image
+                  href="images/delphine-business-card-source.jpg"
+                  width="976"
+                  height="1536"
+                  transform="translate(0 976) rotate(-90)"
+                />
+              </svg>
+            </h2>
+            <div class="business-card-center">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=2+rue+Bombe+Cul+34120+Castelnau-de-Guers"
+                class="business-card-website"
+                href="https://www.delphcouture34.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="map-link"
-                aria-label="Ouvrir l’itinéraire vers l’atelier dans Google Maps (nouvel onglet)"
-                >Venir à l’atelier
-                <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 19 19 5M5 5h14v14" /></svg
-              ></a>
+                aria-label="www.delphcouture34.com — ouvrir dans un nouvel onglet"
+                >www.delphcouture34.com</a
+              >
+              <a class="business-card-phone" href="tel:+33789575561"
+                >Tél 07.89.57.55.61</a
+              >
+            </div>
+            <div class="business-card-footer">
+              <address class="business-card-address">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=2+rue+Bombe+Cul+34120+Castelnau-de-Guers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="2 Rue Bombe cul, 34120 Castelnau de Guers — ouvrir l’itinéraire dans Google Maps (nouvel onglet)"
+                >
+                  <span>2 Rue Bombe cul<br />34120 Castelnau de Guers</span>
+                </a>
+              </address>
+              <a
+                class="business-card-email"
+                href="mailto:roger.delphe1@orange.fr"
+                >roger.delphe1@orange.fr</a
+              >
             </div>
           </div>
         </div>

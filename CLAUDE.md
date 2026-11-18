@@ -22,6 +22,11 @@ analytics script or runtime CSS CDN.
 An expressive artist's atelier: warm ivory, terracotta, sage, dark ink, large
 Fraunces headings and generous photography. The wordmark is `delph.` with
 `COUTURE 34`; **34 identifies the Hérault département**, not an atelier number.
+The contact section reproduces Delphine's supplied business card, including
+its original machine/bird emblem and scripted “Delphine Couture” name. Preserve
+that artwork and its black-on-cream layout. Its source photograph remains
+unchanged; `css/contact-card.css` and an inline SVG viewport handle presentation.
+Keep the contact details as real HTML links and let them reflow on phones.
 Keep French copy concise, concrete and personal. Real creations are the proof;
 do not invent customer quotes, awards, prices, deadlines or commercial promises.
 

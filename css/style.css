@@ -840,103 +840,6 @@ h1 em {
   line-height: 1.85;
   margin: 0 35px 22px 0;
 }
-/* Contact is a conversation, with honest email and telephone links. */
-.contact {
-  background: var(--peach);
-  padding-block: 80px;
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 12%;
-  align-items: center;
-}
-.contact-intro > .eyebrow {
-  font-size: 0.5rem;
-  margin-bottom: 24px;
-}
-.contact h2 {
-  font-size: clamp(2.75rem, 5.7vw, 4.875rem);
-  letter-spacing: -0.055em;
-}
-.contact-intro > p:not(.eyebrow):not(.email-note) {
-  font-size: 0.75rem;
-  line-height: 1.8;
-  margin-top: 22px;
-}
-.contact-intro .button {
-  margin-top: 26px;
-}
-.email-note {
-  font-size: 0.5625rem;
-  margin-top: 10px;
-  color: #604438;
-}
-.contact-row {
-  border-bottom: 1px solid #bc877385;
-  padding-block: 23px;
-}
-.contact-row:first-child {
-  padding-top: 0;
-}
-.contact-row:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-.contact-row .eyebrow {
-  font-size: 0.5rem;
-  letter-spacing: 0.13em;
-  margin-bottom: 10px;
-}
-.contact-phone {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 1.8125rem;
-  letter-spacing: -0.04em;
-  line-height: 1.4;
-}
-.contact-email {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-.contact-row a:hover {
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-.contact-row a > span {
-  flex: none;
-}
-.address-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: flex-end;
-}
-.address-row address {
-  font-size: 0.6875rem;
-  line-height: 1.85;
-}
-.appointment {
-  font-size: 0.5625rem;
-  margin-top: 8px;
-  color: #604438;
-}
-.map-link {
-  font-size: 0.625rem;
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 5px;
-  white-space: normal;
-  display: flex;
-  gap: 14px;
-}
-.map-link > span {
-  font-size: 0.9375rem;
-}
 /* Footer and shared utility pages. */
 .site-footer {
   padding-block: 42px 20px;
@@ -1305,14 +1208,6 @@ dialog::backdrop {
   .atelier-copy h2 {
     font-size: 2.875rem;
   }
-  .contact-grid {
-    gap: 8%;
-  }
-  .address-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
   .footer-top > p {
     margin-left: 20px;
   }
@@ -1516,25 +1411,6 @@ dialog::backdrop {
   }
   .faq-list summary {
     font-size: 0.6875rem;
-  }
-  .contact {
-    padding-block: 65px;
-  }
-  .contact-grid {
-    gap: 7%;
-    grid-template-columns: 1fr 1fr;
-  }
-  .contact h2 {
-    font-size: 3rem;
-  }
-  .contact-phone {
-    font-size: 1.5625rem;
-  }
-  .contact-email {
-    font-size: 0.8125rem;
-  }
-  .contact-intro > .eyebrow {
-    font-size: 0.4375rem;
   }
   .footer-top {
     gap: 20px;
@@ -1885,60 +1761,6 @@ dialog::backdrop {
   .faq-list details p {
     font-size: 0.75rem;
   }
-  .contact {
-    padding-block: 55px;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .contact-intro > .eyebrow {
-    font-size: 0.5rem;
-    margin-bottom: 19px;
-  }
-  .contact h2 {
-    font-size: 3.5625rem;
-  }
-  .contact-intro > p:not(.eyebrow):not(.email-note) {
-    font-size: 0.75rem;
-    margin-top: 20px;
-  }
-  .contact-intro .button {
-    margin-top: 23px;
-  }
-  .contact-info {
-    border-top: 1px solid #bc877385;
-  }
-  .contact-row {
-    padding-block: 23px;
-  }
-  .contact-row:first-child {
-    padding-top: 23px;
-  }
-  .contact-phone {
-    font-size: 1.8125rem;
-  }
-  .contact-email {
-    font-size: 1rem;
-  }
-  .contact-row .eyebrow {
-    font-size: 0.5rem;
-  }
-  .address-row {
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 20px;
-  }
-  .address-row address {
-    font-size: 0.6875rem;
-  }
-  .appointment {
-    font-size: 0.5rem;
-  }
-  .map-link {
-    font-size: 0.5625rem;
-    gap: 6px;
-  }
   .site-footer {
     padding-block: 35px 24px;
   }
@@ -2061,13 +1883,6 @@ dialog::backdrop {
     font-size: 0.625rem;
     gap: 5px;
   }
-  .contact h2 {
-    font-size: 3.25rem;
-  }
-  .address-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .craft-strip span:not([aria-hidden]) {
     font-size: 0.9375rem;
   }
@@ -2127,18 +1942,6 @@ dialog::backdrop {
   stroke: currentColor;
   stroke-width: 1.25;
 }
-.contact-phone .arrow-icon {
-  align-self: center;
-  width: 24px;
-  height: 24px;
-}
-.contact-email .arrow-icon {
-  align-self: center;
-}
-.map-link .arrow-icon {
-  width: 15px;
-  height: 15px;
-}
 .strip-star {
   display: inline-flex;
   color: #747c59;
@@ -2192,19 +1995,6 @@ dialog::backdrop {
   font-size: 0.875rem;
 }
 .method li {
-  font-size: 0.75rem;
-}
-.contact-intro > p:not(.eyebrow):not(.email-note) {
-  font-size: 0.875rem;
-}
-.email-note,
-.appointment {
-  font-size: 0.6875rem;
-}
-.address-row address {
-  font-size: 0.8125rem;
-}
-.map-link {
   font-size: 0.75rem;
 }
 .footer-top > p {
@@ -2292,18 +2082,6 @@ dialog::backdrop {
   .atelier-copy > p:not(.eyebrow) {
     font-size: 0.8125rem;
   }
-  .contact-grid {
-    column-gap: 6%;
-  }
-  .contact-email {
-    font-size: 0.9375rem;
-  }
-  .map-link {
-    font-size: 0.6875rem;
-  }
-  .address-row address {
-    font-size: 0.75rem;
-  }
   .footer-bottom > div {
     gap: 20px;
   }
@@ -2376,9 +2154,6 @@ dialog::backdrop {
   .expertise .section-heading .text-link {
     font-size: 0.75rem;
   }
-  .contact-intro > p:not(.eyebrow):not(.email-note) {
-    font-size: 0.875rem;
-  }
   .footer-top > p {
     font-size: 0.8125rem;
   }
@@ -2393,10 +2168,6 @@ dialog::backdrop {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 8px 22px;
-  }
-  .address-row {
-    flex-direction: column;
-    align-items: flex-start;
   }
   .utility-header .text-link {
     font-size: 0.75rem;
@@ -2491,7 +2262,6 @@ h3 {
 .service > *,
 .atelier > *,
 .questions > *,
-.contact-grid > *,
 .section-heading > * {
   min-width: 0;
 }
@@ -2500,15 +2270,12 @@ h3 {
 .atelier-copy > p:not(.eyebrow),
 .faq-list details p,
 .faq-list summary,
-.contact-intro > p:not(.eyebrow):not(.email-note),
 .utility-main p {
   font-size: 1rem;
 }
 .hero-location,
 .portfolio-count,
 .photo-credits,
-.email-note,
-.appointment,
 .footer-bottom,
 .footer-bottom > div {
   font-size: 0.75rem;
@@ -2516,9 +2283,7 @@ h3 {
 .hero .eyebrow,
 .section-heading .eyebrow,
 .atelier-copy > .eyebrow,
-.questions .eyebrow,
-.contact-intro > .eyebrow,
-.contact-row .eyebrow {
+.questions .eyebrow {
   font-size: 0.6875rem;
 }
 .menu-toggle {
@@ -2531,28 +2296,15 @@ h3 {
 .desktop-nav a,
 .text-link,
 .filter,
-.contact-phone,
-.contact-email,
-.map-link,
 .mobile-phone,
 .footer-bottom a {
   min-height: 44px;
 }
 .desktop-nav a,
-.contact-phone,
-.contact-email,
-.map-link,
 .mobile-phone,
 .footer-bottom a {
   display: inline-flex;
   align-items: center;
-}
-.contact-phone,
-.contact-email {
-  display: flex;
-}
-.contact-email {
-  font-size: 1rem;
 }
 .header-contact > span,
 .filter,
@@ -2569,8 +2321,7 @@ h3 {
   font-size: 0.8125rem;
 }
 .method ol,
-.footer-bottom > div,
-.address-row {
+.footer-bottom > div {
   flex-wrap: wrap;
 }
 .location-dot,
@@ -2642,8 +2393,7 @@ h3 {
   .atelier-image {
     max-width: 430px;
   }
-  .atelier-copy h2,
-  .contact h2 {
+  .atelier-copy h2 {
     overflow-wrap: anywhere;
   }
   .footer-top {

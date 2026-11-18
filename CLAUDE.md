@@ -1,53 +1,78 @@
-# Delphine Roger — Website
+# Delph Couture 34 — implementation guide
 
-## Tech Stack
-- Static HTML (single page)
-- Tailwind CSS via CDN (`cdn.tailwindcss.com`)
-- Vanilla JavaScript (no framework, no build tools, no dependencies)
-- Google Fonts: Fraunces (display), Instrument Sans (body), IBM Plex Mono (labels)
-- No Node.js required
+## Scope and stack
 
-## Project Structure
-```
-website/
-├── index.html          # Single-page site (SEO head + JSON-LD kept intact)
-├── css/style.css       # Design system, stitch motif, slider, lightbox, reveals
-├── js/main.js          # Nav, mobile menu, reveals, lightbox, avant/après slider, mailto form
-├── images/             # Curated photos (JPG + WebP pairs, semantic names)
-│   ├── village-rouge.*      # Hero left (also copied as hero.jpg for og:image)
-│   ├── scene-*.*            # Costume gallery (Pièce N°1)
-│   ├── theatre-couple.*
-│   ├── atelier-*.*          # Sur-mesure section (Pièce N°2)
-│   └── interieur-*.*        # Intérieur incl. avant/après pair (Pièce N°3)
-└── CLAUDE.md
-```
+This is a French landing page for Delphine Roger, couturière and costumière.
+Keep it static and buildless: HTML, local CSS and vanilla JavaScript. There is
+no frontend framework, package installation, backend, contact-form service,
+analytics script or runtime CSS CDN.
 
-## Design — « Du village à la scène »
-- Concept: quiet Languedoc atelier vs. flamboyant stage; split-screen day/night hero diptych
-- Palette: calicot #F6F2EC, écru #EDE7DC, encre #191521, rose #A82B4F, rose clair #E387A0, fil #CFC6B8
-- Signature motifs: tacking-stitch dashed lines, pattern-piece section labels (« Pièce N°1 — … », IBM Plex Mono)
-- Signature interaction: avant/après drag slider (reupholstered armchair) in #confection
-- Copy rule: keep French texts SHORT — photos carry the proof; one short paragraph per section max
-- Sections: hero → facts strip → #realisations (dark) → #couture → #confection (écru) → #methode → #contact (dark) → footer
-- Mobile-first, reduced-motion respected, keyboard-accessible lightbox/slider
+- `index.html`: page content, metadata and JSON-LD.
+- `css/style.css`: layout, responsive styles, motion and visual identity.
+- `js/main.js`: progressive enhancement for the mobile menu, portfolio filters
+  and image viewer; current year in the footer.
+- `fonts/`: self-hosted Fraunces and Instrument Sans WOFF2 files, CSS and licenses.
+- `images/`: original photographs, with WebP/JPG variants.
+- `favicon.svg`: primary monogram icon; `favicon.ico` remains a fallback.
+- `mentions-legales.html`, `404.html`, `robots.txt`, `sitemap.xml`: supporting pages
+  and discovery files.
 
-## Image Source
-- Original photos harvested from the old Wix site (static.wixstatic.com, media IDs prefixed b85bfa_/5a34f6_)
-- Wix page URLs use NFD-decomposed accents (e.g. `couture-sce%CC%80ne`) — NFC-encoded URLs 404
-- Photo credits (kept in page): Nils Jöhnk, F. Beddok, Hand Photography
+## Visual and editorial direction
 
-## Business Info
-- **Owner:** Delphine Roger
-- **Business:** Delph Couture 34
-- **Location:** 2 rue Bombe Cul, 34120 Castelnau-de-Guers, France
-- **Phone:** 07.89.57.55.61
-- **Email:** roger.delphe1@orange.fr
-- **Services:** Costumes de scène, couture sur-mesure, retouches, upcycling, confection d'intérieur
+An expressive artist's atelier: warm ivory, terracotta, sage, dark ink, large
+Fraunces headings and generous photography. The wordmark is `delph.` with
+`COUTURE 34`; **34 identifies the Hérault département**, not an atelier number.
+Keep French copy concise, concrete and personal. Real creations are the proof;
+do not invent customer quotes, awards, prices, deadlines or commercial promises.
 
-## To Open Locally
-Just open `index.html` in a browser. No server needed.
+The page progresses through a photographic hero, six selected creations,
+four services, the artist and her process, a compact FAQ and direct contact.
+Portfolio filters use `scene`, `couture` and `interieur` categories. Do not replace
+the actual work with generated or unrelated stock imagery.
 
-## Verification Notes
-- Headless Chrome on this machine clamps window width to ~500 physical px and applies
-  Windows display scaling — for true mobile-width screenshots, embed the page in a
-  390px iframe wrapper and screenshot that.
+## Interaction and accessibility contracts
+
+- Core content, six portfolio links and `tel:`/`mailto:` contact links work
+  without JavaScript. Filtering is an enhancement, not the only way to see work.
+- The menu and image viewer use native `<dialog>` elements when supported.
+  Preserve Escape handling, keyboard image navigation, focus restoration and
+  the direct-image fallback.
+- Keep the skip link, meaningful headings and image alternatives, visible focus,
+  responsive layout and reduced-motion support.
+- Email actions open the visitor's mail application. Never imply that this static
+  site has sent or stored a message.
+- Preserve existing fragment destinations: `accueil`, `realisations`, `couture`,
+  `confection`, `methode` and `contact`, even when reorganizing sections.
+
+## Business identity and image integrity
+
+- Delphine Roger / Delph Couture 34.
+- 2, rue Bombe Cul, 34120 Castelnau-de-Guers, France.
+- Phone: `+33789575561`; visible: `07 89 57 55 61`.
+- Email: `roger.delphe1@orange.fr`.
+- SIRET: `79429990900018`.
+- Services: costumes de scène, vêtements sur mesure, robes de mariée, retouches,
+  upcycling and confection d'intérieur.
+- Keep photography credits: Nils Jöhnk, F. Beddok and Hand Photography. Images
+  originate from the business's earlier Wix site.
+
+## Search and deployment integrity
+
+Initial HTML carries business facts, services and contact information. JSON-LD
+links `WebSite`, `LocalBusiness`, `Person` and the service catalog; keep it aligned
+with visible content. Do not add hidden FAQ content, fabricated reviews,
+unverified opening hours or prices. The sitemap lists canonical pages, not
+individual `#section` fragments. Its `lastmod` must represent a real update.
+
+GitHub Pages URL: `https://fdittgen-png.github.io/delphcouture34/`.
+As checked on 18 November 2026, `https://www.delphcouture34.com/` still serves Wix.
+Metadata currently matches the GitHub Pages release origin, including canonical,
+social image URLs, schema IDs, robots and sitemap. DNS has not been changed;
+a repository update alone does not replace the Wix site. For a future custom-domain
+migration, update these origin values together and redirect old Wix paths.
+See `README.md` for the practical migration checklist.
+
+Use relative asset and supporting-page links so the GitHub project subpath works.
+Check desktop/mobile rendering, navigation, filters, dialog keyboard behavior,
+contact destinations, no-JavaScript content and local asset paths after changes.
+Do not report unperformed QA or promise search rankings or AI citations.

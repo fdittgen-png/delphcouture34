@@ -50,11 +50,34 @@
         }
       }),
     );
+    menu
+      .querySelectorAll(".mobile-phone")
+      .forEach((link) => link.addEventListener("click", () => menu.close()));
     window
       .matchMedia("(min-width: 801px)")
       .addEventListener("change", (event) => {
         if (event.matches && menu.open) menu.close();
       });
+  }
+
+  // Keep anchor destinations clear when the header wraps or stops being sticky.
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const syncHeaderOffset = () => {
+      const height =
+        getComputedStyle(header).position === "sticky"
+          ? Math.ceil(header.getBoundingClientRect().height)
+          : 0;
+      document.documentElement.style.setProperty(
+        "--header-offset",
+        `${height + 12}px`,
+      );
+    };
+    syncHeaderOffset();
+    if (typeof ResizeObserver === "function") {
+      new ResizeObserver(syncHeaderOffset).observe(header);
+    }
+    window.addEventListener("resize", syncHeaderOffset, { passive: true });
   }
 
   const cards = Array.from(document.querySelectorAll(".work"));

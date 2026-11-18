@@ -39,6 +39,12 @@ the actual work with generated or unrelated stock imagery.
   the direct-image fallback.
 - Keep the skip link, meaningful headings and image alternatives, visible focus,
   responsive layout and reduced-motion support.
+- Preserve comfortable touch targets, root-relative copy sizing, safe-area
+  padding and text reflow. Keep the menu's 800px CSS breakpoint aligned with
+  JavaScript's 801px resize boundary.
+- The header offset follows its actual height. Short landscape screens use a
+  nonsticky header, a sticky menu close row and a bounded image viewer. Keep
+  close and image navigation controls visible when changing dialog layouts.
 - Email actions open the visitor's mail application. Never imply that this static
   site has sent or stored a message.
 - Preserve existing fragment destinations: `accueil`, `realisations`, `couture`,

@@ -27,6 +27,28 @@ image viewer. Contact links open an email or telephone application; there is no
 message-submission backend. Fonts are local; no analytics service or embedded
 map loads with the page.
 
+## Responsive experience
+
+The layout adapts to the space available, with a bounded desktop composition
+and a stacked hero, services, artist and contact sections through 800px.
+The portfolio uses up to two columns through 1100px and three on larger screens;
+small screens or enlarged text can reduce the cards to one column. Full-length
+costume cards use a portrait ratio.
+
+Body copy and controls use relative text sizes. Interactive controls have at
+least 44px-high targets, and the menu button keeps a 44px square hit area.
+The header can accommodate larger text; JavaScript measures its current height
+to keep anchor destinations visible. On short landscape screens the header
+scrolls normally, the menu keeps its close row visible, and the image viewer
+places its controls beside the photograph. Safe-area padding supports device
+cutouts, and the viewport does not disable user zoom.
+
+When changing responsive rules, check the 800px navigation breakpoint against
+`matchMedia("(min-width: 801px)")` in `js/main.js`. Verify the page at 320, 390,
+768, 801, 1024, 1440 and 2560px, landscape at 667×375 and 844×390, and with the
+browser's default text size doubled. Check the legal and 404 pages too. Browser
+viewport checks do not replace testing on physical phones or other engines.
+
 ## Updating content
 
 - Keep business details consistent across visible content, JSON-LD and the legal

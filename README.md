@@ -49,6 +49,21 @@ When changing responsive rules, check the 800px navigation breakpoint against
 browser's default text size doubled. Check the legal and 404 pages too. Browser
 viewport checks do not replace testing on physical phones or other engines.
 
+## Business-card contact section
+
+The contact section follows Delphine's supplied printed card: its original
+sewing-machine/bird emblem and scripted name, then the website and telephone,
+with the address at the lower left and email at the lower right. Small screens
+stack the lower details while retaining their left/right alignment.
+
+`css/contact-card.css` owns this section. The original photograph is preserved
+unchanged in `images/delphine-business-card-source.jpg`; an inline SVG viewport
+presents the upright emblem and lettering, while a CSS filter normalizes the
+photographed paper. Do not replace this artwork with a generic machine icon or
+an invented script font. Website, phone, address and email remain live HTML
+links, with readable text and touch targets. The printed website link points
+to the custom domain; canonical metadata still follows the GitHub Pages host.
+
 ## Updating content
 
 - Keep business details consistent across visible content, JSON-LD and the legal
